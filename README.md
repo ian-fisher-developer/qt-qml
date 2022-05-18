@@ -2,7 +2,7 @@
 
 My employer heavily uses Qt, with GUI elements from the mature QtWidgets module. Most new projects (outside my employer) appear to implement GUIs with the newer QtQML/QtQuick modules, supporting more dynamic GUIs.
 
-These are my personal investigations of QtQml and QtQuick.
+These are my personal investigations of QtQml and QtQuick, creating small applications to run on the desktop and in a browser.
 
 
 ## Applications
@@ -12,9 +12,9 @@ These are my personal investigations of QtQml and QtQuick.
 
 ## Configuration
 
-QML and Quick are still evolving rapidly. These experiments use Qt 6.3.0 -- the latest at the time of writing. Each project is built with CMake -- recommended by the latest QML/Quick documents.
+QtQML and QtQuick are still evolving rapidly. These experiments use Qt 6.3.0 -- the latest at the time of writing. Each application is built via CMake -- recommended by the latest QML/Quick documents.
 
-Each project builds in a Desktop configuration, and in a WebAssembly configuration to run in a browser.
+Each application builds in a Desktop configuration, and in a WebAssembly configuration (runs in a browser).
 
 ### WebAssembly
 
@@ -25,9 +25,9 @@ Some one-time setup is required for WebAssembly builds:
 
 That is all -- the tools for WebAssembly builds are in place.
 
-Open one of the projects in QtCreator, create a WebAssembly build configuration, then build and run the project--the application opens in a browser window.
+Open one of the projects in QtCreator, create a WebAssembly build configuration, then build and run the project -- the application opens in a browser window.
 
-The [Qt documents][WA02] have more details, including command line options in place of building/running in QtCreator.
+The [Qt documents][WA02] have more details, including instructions to build and run from a command line.
 
 [WA01]: https://emscripten.org/docs/getting_started/downloads.html
         "Getting started with the Emscripten SDK."
