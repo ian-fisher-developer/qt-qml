@@ -1,19 +1,20 @@
-# qt-qml
+# Learning About Qt QML/Quick
 
-Experiments with Qt QML
+My employer heavily uses Qt, with GUI elements from the mature QtWidgets module. Most new projects (outside my employer) appear to implement GUIs with the newer QtQML/QtQuick modules, supporting more dynamic GUIs.
 
-## Motivation
+These are my personal investigations of QtQml and QtQuick.
 
-My employer heavily uses Qt. The GUI elements are all QtWidgets -- no QML. These are my personal investigations of QML.
+
+## Applications
+
+1. Minimal Table -- a simple QML table view displays data from a C++ table model
+
 
 ## Configuration
 
-QML is still evolving rapidly. These experiments use Qt 6.3.0 -- the latest at the time of writing. Each project is built with CMake -- recommended by the latest QML documents.
+QML and Quick are still evolving rapidly. These experiments use Qt 6.3.0 -- the latest at the time of writing. Each project is built with CMake -- recommended by the latest QML/Quick documents.
 
 Each project builds in a Desktop configuration, and in a WebAssembly configuration to run in a browser.
-
-### Desktop
-
 
 ### WebAssembly
 
@@ -33,6 +34,3 @@ The [Qt documents][WA02] have more details, including command line options in pl
 [WA02]: https://doc.qt.io/qt-6/wasm.html
         "Qt for WebAssembly"
 
-## Projects
-
-1. Minimal Table -- a simple QML table view displays data from a C++ table model
