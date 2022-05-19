@@ -9,7 +9,7 @@ int MinimalTableModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid())
         return 0;
-    return 3;
+    return 2;
 }
 
 int MinimalTableModel::columnCount(const QModelIndex &parent) const
@@ -23,7 +23,7 @@ QVariant MinimalTableModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid() || role != Qt::DisplayRole)
         return QVariant();
-    return QString::number(index.column()) + QString::number(index.row());
+    return QString::number(index.row()) + QString::number(index.column());
 }
 
 QVariant MinimalTableModel::headerData(int /* section */, Qt::Orientation /* orientation */,

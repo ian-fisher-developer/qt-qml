@@ -4,7 +4,7 @@ import MinimalTableModel 1.0
 
 Window {
     visible: true
-    width: 150
+    width: 200
     height: 150
     title: qsTr("Minimal Table")
 
