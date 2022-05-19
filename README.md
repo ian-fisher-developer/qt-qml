@@ -2,7 +2,7 @@
 
 My employer heavily uses Qt, with GUI elements from the mature QtWidgets module. Most new projects (outside my employer) appear to implement GUIs with the newer QtQML/QtQuick modules, supporting more dynamic GUIs.
 
-These are my personal investigations of QtQml and QtQuick, creating small applications to run on the desktop and in a browser.
+These are my personal investigations of QtQml and QtQuick, creating small, tested applications to run on the desktop and in a browser.
 
 
 ## Applications
