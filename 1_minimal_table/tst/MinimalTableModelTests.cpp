@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../1_minimal_table/MinimalTableModel.h"
+#include "../src/MinimalTableModel.h"
 
 TEST(MinimalTableModel, hasTwoRows)
 {

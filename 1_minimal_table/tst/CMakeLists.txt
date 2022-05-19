@@ -6,8 +6,8 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt6 REQUIRED COMPONENTS Core Gui)
 
 qt_add_executable(minimal_table_tests
-    /Users/ifisher/Learning/qt-qml/1_minimal_table/MinimalTableModel.cpp
-    /Users/ifisher/Learning/qt-qml/1_minimal_table/MinimalTableModel.h
+    ../src/MinimalTableModel.cpp
+    ../src/MinimalTableModel.h
     MinimalTableModelTests.cpp
 )
 
