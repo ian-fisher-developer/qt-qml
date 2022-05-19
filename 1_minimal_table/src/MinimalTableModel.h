@@ -16,8 +16,6 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &, int role = Qt::DisplayRole) const override;
-
-    QVariant headerData(int section, Qt::Orientation, int role) const override;
 };
 
 #endif // MinimalTableModel_H
