@@ -11,11 +11,16 @@ class AdjustableTableModel : public QAbstractTableModel
 
 public:
     AdjustableTableModel(size_t nRows, size_t nCols, QObject *parent = nullptr);
+    ~AdjustableTableModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &, int role = Qt::DisplayRole) const override;
+
+private:
+    struct Impl;
+    const std::unique_ptr<Impl> pImpl;
 };
 
 #endif // AdjustableTableModel_H
