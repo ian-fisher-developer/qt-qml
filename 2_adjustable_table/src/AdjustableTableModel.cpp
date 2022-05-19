@@ -3,7 +3,7 @@
 
 namespace{
 
-size_t enforceSizeLimits(size_t n)
+int enforceSizeLimits(int n)
 {
     if(n < 1) return 1;
     if(n > 10) return 10;
@@ -15,9 +15,9 @@ size_t enforceSizeLimits(size_t n)
 
 struct AdjustableTableModel::Impl
 {
-    size_t m_nRows, m_nCols;
+    int m_nRows, m_nCols;
 
-    Impl(size_t nRows, size_t nCols)
+    Impl(int nRows, int nCols)
         : m_nRows(enforceSizeLimits(nRows)),
           m_nCols(enforceSizeLimits(nCols))
     {}
@@ -25,14 +25,38 @@ struct AdjustableTableModel::Impl
 }; // AdjustableTableModel::Impl
 
 
-AdjustableTableModel::AdjustableTableModel(size_t nRows, size_t nCols, QObject *parent)
+AdjustableTableModel::AdjustableTableModel(QObject *parent)
     : QAbstractTableModel(parent),
-      pImpl(new Impl(nRows, nCols))
+      pImpl(new Impl(5, 5))
 {
 }
 
 AdjustableTableModel::~AdjustableTableModel()
 {
+}
+
+int AdjustableTableModel::nRows() const
+{
+    return pImpl->m_nRows;
+}
+
+int AdjustableTableModel::nCols() const
+{
+    return pImpl->m_nCols;
+}
+
+void AdjustableTableModel::setNRows(int n)
+{
+    beginResetModel();
+    pImpl->m_nRows = enforceSizeLimits(n);
+    endResetModel();
+}
+
+void AdjustableTableModel::setNCols(int n)
+{
+    beginResetModel();
+    pImpl->m_nCols = enforceSizeLimits(n);
+    endResetModel();
 }
 
 int AdjustableTableModel::rowCount(const QModelIndex &parent) const

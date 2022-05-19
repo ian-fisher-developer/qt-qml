@@ -12,7 +12,10 @@ Window {
         anchors.margins: 20
         anchors.fill: parent
 
-        model: AdjustableTableModel{}
+        model: AdjustableTableModel{
+            nRows: 2
+            nCols: 3
+        }
 
         delegate: Rectangle {
             Text {
