@@ -10,6 +10,10 @@ The C++ data model provides a code complication. It demonstrates that data model
 
 The code complication is significant. This application does not run in [Qt Design Viewer][01], a convenient tool for previewing pure QML projects in a browser. The C++ data model makes this a non-pure QML project. Ignoring Qt Design Viewer, a full WebAssembly configuration build/run does indeed work in a browser.
 
+![Minimal table running on the desktop](Desktop.png "Desktop")
+
+![Minimal table running in a browser](Browser.png "Browser")
+
 [01]: https://qt-webassembly.io/designviewer/
       "Qt Design Viewer, powered by web assembly"
 
