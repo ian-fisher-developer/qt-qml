@@ -1,16 +1,16 @@
 # Minimal Table
 
-A simple QML table view displays data from a C++ table model.
+A minimal QML table view displays data from a small, fixed, C++ table model.
 
 ## Description
 
-The first application is most basic. It focuses on discovering the build details for a simple, tested, application that runs on the desktop and in a browser.
+The first application is most basic. It focuses on discovering the tools and build details for a simple, tested, application that runs on the desktop and in a browser.
 
 A C++ data model provides one code complication. It demonstrates that data models used with QtWidgets views may be re-used with QML/Quick views.
 
 ## Tests
 
-A google-test suite defines the simple, fixed, C++ data model.
+A google-test suite defines the small, fixed, C++ data model.
 
 ```
 [==========] Running 4 tests from 1 test suite.
@@ -33,7 +33,7 @@ A google-test suite defines the simple, fixed, C++ data model.
 
 ## Desktop Application
 
-![Minimal table running on the desktop](Desktop.png "Desktop")
+![Running on the desktop](Desktop.png)
 
 ## Browser Application
 
@@ -42,7 +42,7 @@ The code complication means that this application does **not** run in [Qt Design
 [01]: https://qt-webassembly.io/designviewer/
       "Qt Design Viewer, powered by web assembly"
 
-A full Emscripten/WebAssembly configuration build/run **does** work in a browser.
+A full Emscripten/WebAssembly build **does** run in a browser.
 
-![Minimal table running in a browser](Browser.png "Browser")
+![Running in a browser](Browser.png)
 

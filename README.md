@@ -7,12 +7,19 @@ These are my personal investigations of QtQml and QtQuick, creating small, teste
 
 ## Applications
 
-1. Minimal Table -- a simple QML table view displays data from a C++ table model
+1. Minimal Table
+    
+   A minimal QML table view displays data from a small, fixed, C++ table model.
+    
+2. Adjustable Table
 
+   IN PROGRESS: A QML table view displays data from a C++ table model, with controls for the table size.
 
 ## Configuration
 
 QtQML and QtQuick are still evolving rapidly. These experiments use Qt 6.3.0 -- the latest at the time of writing. Each application is built via CMake -- recommended by the latest QML/Quick documents.
+
+For now, I use QtCreator to configure, build, and run. That is fine for these personal learning exercises. Keep in mind that a more production-like environment would require build scripts, run scripts, etc.
 
 Each application builds in a Desktop configuration, and in a WebAssembly configuration (runs in a browser).
 
