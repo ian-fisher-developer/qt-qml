@@ -9,6 +9,10 @@ class AdjustableTableModel : public QAbstractTableModel
     Q_OBJECT
     Q_PROPERTY(int nRows READ nRows WRITE setNRows NOTIFY nRowsChanged)
     Q_PROPERTY(int nCols READ nCols WRITE setNCols NOTIFY nColsChanged)
+    Q_PROPERTY(int maxNRows READ maxNRows CONSTANT)
+    Q_PROPERTY(int maxNCols READ maxNCols CONSTANT)
+    Q_PROPERTY(int defaultNRows READ defaultNRows CONSTANT)
+    Q_PROPERTY(int defaultNCols READ defaultNCols CONSTANT)
     QML_ELEMENT
 
 public:
@@ -20,6 +24,12 @@ public:
 
     void setNRows(int);
     void setNCols(int);
+
+    int maxNRows() const;
+    int maxNCols() const;
+
+    int defaultNRows() const;
+    int defaultNCols() const;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;

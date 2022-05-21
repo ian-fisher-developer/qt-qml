@@ -19,22 +19,20 @@ Window {
             text: " "
         }
 
-        Row {
-            Slider {
-                id: nColsSlider
-                orientation: Qt.Horizontal
-                from: 1
-                to: 26
-                value: 5
-            }
+        Slider {
+            id: nColsSlider
+            orientation: Qt.Horizontal
+            from: 1
+            to: adjustableTableModel.maxNCols
+            value: adjustableTableModel.defaultNCols
         }
 
         Slider {
             id: nRowsSlider
             orientation: Qt.Vertical
-            from: 10
+            from: adjustableTableModel.maxNRows
             to: 1
-            value: 6
+            value: adjustableTableModel.defaultNRows
         }
 
         TableView {
@@ -43,6 +41,7 @@ Window {
             rowSpacing: 4
             columnSpacing: 10
             model: AdjustableTableModel {
+                id: adjustableTableModel
                 nRows: nRowsSlider.value
                 nCols: nColsSlider.value
             }

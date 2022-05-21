@@ -10,11 +10,20 @@ QString columnLabels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 } // unnamed namespace
 
 
-TEST(AdjustableTableModel, defaultsToFiveRowsAndColumns)
+TEST(AdjustableTableModel, hasMaximumDimensions)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
+    EXPECT_EQ(maxNRows, model->maxNRows());
+    EXPECT_EQ(maxNCols, model->maxNCols());
+}
+
+TEST(AdjustableTableModel, hasDefaultDimensions)
+{
+    AdjustableTableModel *model = new AdjustableTableModel();
+    EXPECT_EQ(5, model->defaultNRows());
+    EXPECT_EQ(8, model->defaultNCols());
     EXPECT_EQ(5, model->rowCount());
-    EXPECT_EQ(5, model->columnCount());
+    EXPECT_EQ(8, model->columnCount());
 }
 
 TEST(AdjustableTableModel, hasAtLeastOneRowAndColumn)

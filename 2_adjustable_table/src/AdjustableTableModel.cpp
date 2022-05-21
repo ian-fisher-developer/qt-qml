@@ -3,15 +3,16 @@
 
 namespace{
 
-int maxNRows(9);
-int maxNCols(26);
-int defaultNRows(5);
-int defaultNCols(5);
+const int MAX_NROWS(9);
+const int MAX_NCOLS(26);
+const QString COLUMN_LABELS("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+const int DEFAULT_NROWS(5);
+const int DEFAULT_NCOLS(8);
 
 int enforceRowLimit(int n)
 {
     if(n < 1) return 1;
-    if(n > maxNRows) return maxNRows;
+    if(n > MAX_NROWS) return MAX_NROWS;
     return n;
 }
 
@@ -23,14 +24,16 @@ QString rowLabel(int i)
 int enforceColumnLimit(int n)
 {
     if(n < 1) return 1;
-    if(n > maxNCols) return maxNCols;
+    if(n > MAX_NCOLS) return MAX_NCOLS;
     return n;
 }
 
+
+
 QString columnLabel(int i)
 {
-    if(i>maxNCols-1) return QString();
-    return QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ")[i];
+    if(i < 0 || i > COLUMN_LABELS.length()-1) return QString("?");
+    return COLUMN_LABELS[i];
 }
 
 } // unnamed namespace
@@ -50,7 +53,7 @@ struct AdjustableTableModel::Impl
 
 AdjustableTableModel::AdjustableTableModel(QObject *parent)
     : QAbstractTableModel(parent),
-      pImpl(new Impl(defaultNRows, defaultNCols))
+      pImpl(new Impl(DEFAULT_NROWS, DEFAULT_NCOLS))
 {
 }
 
@@ -80,6 +83,26 @@ void AdjustableTableModel::setNCols(int n)
     beginResetModel();
     pImpl->m_nCols = enforceColumnLimit(n);
     endResetModel();
+}
+
+int AdjustableTableModel::maxNRows() const
+{
+    return MAX_NROWS;
+}
+
+int AdjustableTableModel::maxNCols() const
+{
+    return MAX_NCOLS;
+}
+
+int AdjustableTableModel::defaultNRows() const
+{
+    return DEFAULT_NROWS;
+}
+
+int AdjustableTableModel::defaultNCols() const
+{
+    return DEFAULT_NCOLS;
 }
 
 int AdjustableTableModel::rowCount(const QModelIndex &parent) const
