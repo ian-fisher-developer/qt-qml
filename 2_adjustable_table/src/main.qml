@@ -16,23 +16,23 @@ Window {
         height: parent.height
 
         Text {
-            text: " "
+            text: " " // empty top-left grid cell -- is there a more explicit item than empty text?
         }
 
         Slider {
-            id: nColsSlider
+            id: nColsControl
             orientation: Qt.Horizontal
             from: 1
-            to: adjustableTableModel.maxNCols
-            value: adjustableTableModel.defaultNCols
+            to: adjustableTableModel.nColsMax
+            value: adjustableTableModel.nColsDefault
         }
 
         Slider {
-            id: nRowsSlider
+            id: nRowsControl
             orientation: Qt.Vertical
-            from: adjustableTableModel.maxNRows
+            from: adjustableTableModel.nRowsMax
             to: 1
-            value: adjustableTableModel.defaultNRows
+            value: adjustableTableModel.nRowsDefault
         }
 
         TableView {
@@ -42,8 +42,8 @@ Window {
             columnSpacing: 10
             model: AdjustableTableModel {
                 id: adjustableTableModel
-                nRows: nRowsSlider.value
-                nCols: nColsSlider.value
+                nRows: nRowsControl.value
+                nCols: nColsControl.value
             }
             delegate: Text {
                 text: display

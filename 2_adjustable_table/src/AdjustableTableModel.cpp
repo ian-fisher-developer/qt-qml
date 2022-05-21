@@ -28,8 +28,6 @@ int enforceColumnLimit(int n)
     return n;
 }
 
-
-
 QString columnLabel(int i)
 {
     if(i < 0 || i > COLUMN_LABELS.length()-1) return QString("?");
@@ -61,9 +59,29 @@ AdjustableTableModel::~AdjustableTableModel()
 {
 }
 
+int AdjustableTableModel::nRowsMax() const
+{
+    return MAX_NROWS;
+}
+
+int AdjustableTableModel::nRowsDefault() const
+{
+    return DEFAULT_NROWS;
+}
+
 int AdjustableTableModel::nRows() const
 {
     return pImpl->m_nRows;
+}
+
+int AdjustableTableModel::nColsMax() const
+{
+    return MAX_NCOLS;
+}
+
+int AdjustableTableModel::nColsDefault() const
+{
+    return DEFAULT_NCOLS;
 }
 
 int AdjustableTableModel::nCols() const
@@ -83,26 +101,6 @@ void AdjustableTableModel::setNCols(int n)
     beginResetModel();
     pImpl->m_nCols = enforceColumnLimit(n);
     endResetModel();
-}
-
-int AdjustableTableModel::maxNRows() const
-{
-    return MAX_NROWS;
-}
-
-int AdjustableTableModel::maxNCols() const
-{
-    return MAX_NCOLS;
-}
-
-int AdjustableTableModel::defaultNRows() const
-{
-    return DEFAULT_NROWS;
-}
-
-int AdjustableTableModel::defaultNCols() const
-{
-    return DEFAULT_NCOLS;
 }
 
 int AdjustableTableModel::rowCount(const QModelIndex &parent) const

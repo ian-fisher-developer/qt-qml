@@ -13,15 +13,15 @@ QString columnLabels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 TEST(AdjustableTableModel, hasMaximumDimensions)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
-    EXPECT_EQ(maxNRows, model->maxNRows());
-    EXPECT_EQ(maxNCols, model->maxNCols());
+    EXPECT_EQ(maxNRows, model->nRowsMax());
+    EXPECT_EQ(maxNCols, model->nColsMax());
 }
 
 TEST(AdjustableTableModel, hasDefaultDimensions)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
-    EXPECT_EQ(5, model->defaultNRows());
-    EXPECT_EQ(8, model->defaultNCols());
+    EXPECT_EQ(5, model->nRowsDefault());
+    EXPECT_EQ(8, model->nColsDefault());
     EXPECT_EQ(5, model->rowCount());
     EXPECT_EQ(8, model->columnCount());
 }
