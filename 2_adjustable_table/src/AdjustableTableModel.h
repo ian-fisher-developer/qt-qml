@@ -25,6 +25,7 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int sectionNumber, Qt::Orientation, int role = Qt::DisplayRole) const override;
 
 signals:
     void nRowsChanged(int);

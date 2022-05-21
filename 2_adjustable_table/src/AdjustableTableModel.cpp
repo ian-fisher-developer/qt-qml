@@ -3,11 +3,24 @@
 
 namespace{
 
+int maxNRowsCols(9);
+
 int enforceSizeLimits(int n)
 {
     if(n < 1) return 1;
-    if(n > 10) return 10;
+    if(n > maxNRowsCols) return maxNRowsCols;
     return n;
+}
+
+QString rowLabel(int i)
+{
+    return QString::number(i+1);
+}
+
+QString columnLabel(int i)
+{
+    if(i>maxNRowsCols-1) return QString();
+    return QString("ABCDEFGHI")[i];
 }
 
 } // unnamed namespace
@@ -61,21 +74,29 @@ void AdjustableTableModel::setNCols(int n)
 
 int AdjustableTableModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
-        return 0;
+    if (parent.isValid()) return 0;
+
     return pImpl->m_nRows;
 }
 
 int AdjustableTableModel::columnCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
-        return 0;
+    if (parent.isValid()) return 0;
+
     return pImpl->m_nCols;
 }
 
 QVariant AdjustableTableModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid() || role != Qt::DisplayRole)
-        return QVariant();
-    return QString::number(index.row()) + QString::number(index.column());
+    if (!index.isValid() || role != Qt::DisplayRole) return QVariant();
+
+    return columnLabel(index.column()) + rowLabel(index.row());
+}
+
+QVariant AdjustableTableModel::headerData(int sectionNumber, Qt::Orientation orientation, int role) const
+{
+    if (role != Qt::DisplayRole) return QVariant();
+
+    if (orientation == Qt::Vertical) return rowLabel(sectionNumber);
+    return columnLabel(sectionNumber);
 }

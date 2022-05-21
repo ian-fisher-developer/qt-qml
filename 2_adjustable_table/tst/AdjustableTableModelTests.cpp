@@ -1,6 +1,13 @@
 #include "../src/AdjustableTableModel.h"
 #include <gtest/gtest.h>
 
+namespace {
+
+int maximumRowsAndColumns = 9;
+
+} // unnamed namespace
+
+
 TEST(AdjustableTableModel, defaultsToFiveRowsAndColumns)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
@@ -27,30 +34,52 @@ TEST(AdjustableTableModel, hasAtLeastOneRowAndColumn)
     }
 }
 
-TEST(AdjustableTableModel, hasAtMostTenRowsAndColumns)
+TEST(AdjustableTableModel, enforcesMaximumNumberOfRowsAndColumns)
 {
     {
         AdjustableTableModel *largestModel = new AdjustableTableModel();
-        largestModel->setProperty("nRows", 10);
-        largestModel->setProperty("nCols", 10);
-        EXPECT_EQ(10, largestModel->rowCount());
-        EXPECT_EQ(10, largestModel->columnCount());
+        largestModel->setProperty("nRows", maximumRowsAndColumns);
+        largestModel->setProperty("nCols", maximumRowsAndColumns);
+        EXPECT_EQ(maximumRowsAndColumns, largestModel->rowCount());
+        EXPECT_EQ(maximumRowsAndColumns, largestModel->columnCount());
     }
 
     {
         AdjustableTableModel *limitedModel = new AdjustableTableModel();
-        limitedModel->setProperty("nRows", 11);
-        limitedModel->setProperty("nCols", 11);
-        EXPECT_EQ(10, limitedModel->rowCount());
-        EXPECT_EQ(10, limitedModel->columnCount());
+        limitedModel->setProperty("nRows", maximumRowsAndColumns+1);
+        limitedModel->setProperty("nCols", maximumRowsAndColumns+1);
+        EXPECT_EQ(maximumRowsAndColumns, limitedModel->rowCount());
+        EXPECT_EQ(maximumRowsAndColumns, limitedModel->columnCount());
     }
 }
 
-TEST(AdjustableTableModel, displaysRowColStringInEachCell)
+TEST(AdjustableTableModel, displaysHeaderRowNumbers)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
-    model->setProperty("nRows", 10);
-    model->setProperty("nCols", 10);
+    model->setProperty("nRows", 5);
+    model->setProperty("nCols", 1);
+    QString topRow(model->headerData(0, Qt::Vertical, Qt::DisplayRole).toString());
+    QString bottomRow(model->headerData(model->rowCount()-1, Qt::Vertical, Qt::DisplayRole).toString());
+    EXPECT_EQ("1", topRow.toStdString());
+    EXPECT_EQ("5", bottomRow.toStdString());
+}
+
+TEST(AdjustableTableModel, displaysHeaderColumnLetters)
+{
+    AdjustableTableModel *model = new AdjustableTableModel();
+    model->setProperty("nRows", 1);
+    model->setProperty("nCols", 4);
+    QString topRow(model->headerData(0, Qt::Horizontal, Qt::DisplayRole).toString());
+    QString bottomRow(model->headerData(model->columnCount()-1, Qt::Horizontal, Qt::DisplayRole).toString());
+    EXPECT_EQ("A", topRow.toStdString());
+    EXPECT_EQ("D", bottomRow.toStdString());
+}
+
+TEST(AdjustableTableModel, displaysDataAsColumnRowLabels)
+{
+    AdjustableTableModel *model = new AdjustableTableModel();
+    model->setProperty("nRows", 3);
+    model->setProperty("nCols", 5);
     QModelIndex topLeftIndex = model->index(0, 0);
     QModelIndex topRightIndex = model->index(0, model->columnCount()-1);
     QModelIndex bottomLeftIndex = model->index(model->rowCount()-1, 0);
@@ -59,8 +88,9 @@ TEST(AdjustableTableModel, displaysRowColStringInEachCell)
     QString topRight(model->data(topRightIndex, Qt::DisplayRole).toString());
     QString bottomLeft(model->data(bottomLeftIndex, Qt::DisplayRole).toString());
     QString bottomRight(model->data(bottomRightIndex, Qt::DisplayRole).toString());
-    EXPECT_EQ("00", topLeft.toStdString());
-    EXPECT_EQ("09", topRight.toStdString());
-    EXPECT_EQ("90", bottomLeft.toStdString());
-    EXPECT_EQ("99", bottomRight.toStdString());
+    EXPECT_EQ("A1", topLeft.toStdString());
+    EXPECT_EQ("E1", topRight.toStdString());
+    EXPECT_EQ("A3", bottomLeft.toStdString());
+    EXPECT_EQ("E3", bottomRight.toStdString());
 }
+
