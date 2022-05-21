@@ -3,7 +3,9 @@
 
 namespace {
 
-int maximumRowsAndColumns = 9;
+int maxNRows(9);
+int maxNCols(26);
+QString columnLabels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 } // unnamed namespace
 
@@ -34,23 +36,22 @@ TEST(AdjustableTableModel, hasAtLeastOneRowAndColumn)
     }
 }
 
-TEST(AdjustableTableModel, enforcesMaximumNumberOfRowsAndColumns)
+TEST(AdjustableTableModel, enforcesRowsLimit)
 {
-    {
-        AdjustableTableModel *largestModel = new AdjustableTableModel();
-        largestModel->setProperty("nRows", maximumRowsAndColumns);
-        largestModel->setProperty("nCols", maximumRowsAndColumns);
-        EXPECT_EQ(maximumRowsAndColumns, largestModel->rowCount());
-        EXPECT_EQ(maximumRowsAndColumns, largestModel->columnCount());
-    }
+    AdjustableTableModel *model = new AdjustableTableModel();
+    model->setProperty("nRows", maxNRows);
+    EXPECT_EQ(maxNRows, model->rowCount());
+    model->setProperty("nRows", maxNRows+1);
+    EXPECT_EQ(maxNRows, model->rowCount());
+}
 
-    {
-        AdjustableTableModel *limitedModel = new AdjustableTableModel();
-        limitedModel->setProperty("nRows", maximumRowsAndColumns+1);
-        limitedModel->setProperty("nCols", maximumRowsAndColumns+1);
-        EXPECT_EQ(maximumRowsAndColumns, limitedModel->rowCount());
-        EXPECT_EQ(maximumRowsAndColumns, limitedModel->columnCount());
-    }
+TEST(AdjustableTableModel, enforcesColumnsLimit)
+{
+    AdjustableTableModel *model = new AdjustableTableModel();
+    model->setProperty("nCols", maxNCols);
+    EXPECT_EQ(maxNCols, model->columnCount());
+    model->setProperty("nCols", maxNCols+1);
+    EXPECT_EQ(maxNCols, model->columnCount());
 }
 
 TEST(AdjustableTableModel, displaysHeaderRowNumbers)

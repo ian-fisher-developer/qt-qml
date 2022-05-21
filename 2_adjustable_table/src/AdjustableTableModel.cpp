@@ -3,12 +3,15 @@
 
 namespace{
 
-int maxNRowsCols(9);
+int maxNRows(9);
+int maxNCols(26);
+int defaultNRows(5);
+int defaultNCols(5);
 
-int enforceSizeLimits(int n)
+int enforceRowLimit(int n)
 {
     if(n < 1) return 1;
-    if(n > maxNRowsCols) return maxNRowsCols;
+    if(n > maxNRows) return maxNRows;
     return n;
 }
 
@@ -17,10 +20,17 @@ QString rowLabel(int i)
     return QString::number(i+1);
 }
 
+int enforceColumnLimit(int n)
+{
+    if(n < 1) return 1;
+    if(n > maxNCols) return maxNCols;
+    return n;
+}
+
 QString columnLabel(int i)
 {
-    if(i>maxNRowsCols-1) return QString();
-    return QString("ABCDEFGHI")[i];
+    if(i>maxNCols-1) return QString();
+    return QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ")[i];
 }
 
 } // unnamed namespace
@@ -31,8 +41,8 @@ struct AdjustableTableModel::Impl
     int m_nRows, m_nCols;
 
     Impl(int nRows, int nCols)
-        : m_nRows(enforceSizeLimits(nRows)),
-          m_nCols(enforceSizeLimits(nCols))
+        : m_nRows(enforceRowLimit(nRows)),
+          m_nCols(enforceColumnLimit(nCols))
     {}
 
 }; // AdjustableTableModel::Impl
@@ -40,7 +50,7 @@ struct AdjustableTableModel::Impl
 
 AdjustableTableModel::AdjustableTableModel(QObject *parent)
     : QAbstractTableModel(parent),
-      pImpl(new Impl(5, 5))
+      pImpl(new Impl(defaultNRows, defaultNCols))
 {
 }
 
@@ -61,14 +71,14 @@ int AdjustableTableModel::nCols() const
 void AdjustableTableModel::setNRows(int n)
 {
     beginResetModel();
-    pImpl->m_nRows = enforceSizeLimits(n);
+    pImpl->m_nRows = enforceRowLimit(n);
     endResetModel();
 }
 
 void AdjustableTableModel::setNCols(int n)
 {
     beginResetModel();
-    pImpl->m_nCols = enforceSizeLimits(n);
+    pImpl->m_nCols = enforceColumnLimit(n);
     endResetModel();
 }
 
@@ -97,6 +107,9 @@ QVariant AdjustableTableModel::headerData(int sectionNumber, Qt::Orientation ori
 {
     if (role != Qt::DisplayRole) return QVariant();
 
-    if (orientation == Qt::Vertical) return rowLabel(sectionNumber);
-    return columnLabel(sectionNumber);
+    if (orientation == Qt::Vertical) {
+        return rowLabel(sectionNumber);
+    }else{
+        return columnLabel(sectionNumber);
+    }
 }
