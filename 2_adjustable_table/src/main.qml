@@ -1,25 +1,50 @@
-import QtQuick 2.12
-import QtQuick.Window 2.12
-import AdjustableTableModel 1.0
+import QtQuick
+import QtQuick.Controls
+import AdjustableTableModel
 
 Window {
     visible: true
-    width: 200
-    height: 150
+    width: 600
+    height: 600
     title: qsTr("Adjustable Table")
 
-    TableView {
-        anchors.margins: 20
-        anchors.fill: parent
+    Grid {
+        columns: 2
+        spacing: 20
+        width: parent.width
+        height: parent.height
 
-        model: AdjustableTableModel{
-            nRows: 2
-            nCols: 3
+        Text {
+            text: " "
         }
 
-        delegate: Rectangle {
-            Text {
-                text: display
+        Slider {
+             id: nColsSlider
+             orientation: Qt.Horizontal
+             from: 1
+             to: 10
+             value: 5
+         }
+
+        Slider {
+            id: nRowsSlider
+            orientation: Qt.Vertical
+            from: 10
+            to: 1
+            value: 3
+        }
+
+       TableView {
+            width: parent.width
+            height: parent.height
+            model: AdjustableTableModel{
+                nRows: nRowsSlider.value
+                nCols: nColsSlider.value
+            }
+            delegate: Rectangle {
+                Text {
+                    text: display
+                }
             }
         }
     }
