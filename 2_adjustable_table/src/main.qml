@@ -3,8 +3,8 @@ import QtQuick.Controls
 import AdjustableTableModel
 
 Window {
-    width: 350
-    height: 300
+    width: 800
+    height: 250
     visible: true
     color: "gray"
     title: qsTr("Adjustable Table")
@@ -19,12 +19,14 @@ Window {
             text: " "
         }
 
-        Slider {
-            id: nColsSlider
-            orientation: Qt.Horizontal
-            from: 1
-            to: 10
-            value: 4
+        Row {
+            Slider {
+                id: nColsSlider
+                orientation: Qt.Horizontal
+                from: 1
+                to: 26
+                value: 5
+            }
         }
 
         Slider {
@@ -32,7 +34,7 @@ Window {
             orientation: Qt.Vertical
             from: 10
             to: 1
-            value: 4
+            value: 6
         }
 
         TableView {
