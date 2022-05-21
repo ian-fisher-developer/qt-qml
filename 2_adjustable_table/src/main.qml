@@ -3,9 +3,10 @@ import QtQuick.Controls
 import AdjustableTableModel
 
 Window {
+    width: 350
+    height: 300
     visible: true
-    width: 600
-    height: 600
+    color: "gray"
     title: qsTr("Adjustable Table")
 
     Grid {
@@ -19,32 +20,32 @@ Window {
         }
 
         Slider {
-             id: nColsSlider
-             orientation: Qt.Horizontal
-             from: 1
-             to: 10
-             value: 5
-         }
+            id: nColsSlider
+            orientation: Qt.Horizontal
+            from: 1
+            to: 10
+            value: 4
+        }
 
         Slider {
             id: nRowsSlider
             orientation: Qt.Vertical
             from: 10
             to: 1
-            value: 3
+            value: 4
         }
 
-       TableView {
+        TableView {
             width: parent.width
             height: parent.height
-            model: AdjustableTableModel{
+            rowSpacing: 4
+            columnSpacing: 10
+            model: AdjustableTableModel {
                 nRows: nRowsSlider.value
                 nCols: nColsSlider.value
             }
-            delegate: Rectangle {
-                Text {
-                    text: display
-                }
+            delegate: Text {
+                text: display
             }
         }
     }
