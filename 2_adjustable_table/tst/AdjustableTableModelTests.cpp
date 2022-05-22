@@ -26,26 +26,16 @@ TEST(AdjustableTableModel, hasDefaultDimensions)
     EXPECT_EQ(8, model->columnCount());
 }
 
-TEST(AdjustableTableModel, hasAtLeastOneRowAndColumn)
+TEST(AdjustableTableModel, enforcesMinimumNumberOfRows)
 {
-    {
-        AdjustableTableModel *smallestModel = new AdjustableTableModel();
-        smallestModel->setProperty("nRows", 1);
-        smallestModel->setProperty("nCols", 1);
-        EXPECT_EQ(1, smallestModel->rowCount());
-        EXPECT_EQ(1, smallestModel->columnCount());
-    }
-
-    {
-        AdjustableTableModel *limitedModel = new AdjustableTableModel();
-        limitedModel->setProperty("nRows", 0);
-        limitedModel->setProperty("nCols", 0);
-        EXPECT_EQ(1, limitedModel->rowCount());
-        EXPECT_EQ(1, limitedModel->columnCount());
-    }
+    AdjustableTableModel *model = new AdjustableTableModel();
+    model->setProperty("nRows", 1);
+    EXPECT_EQ(1, model->rowCount());
+    model->setProperty("nRows", 0);
+    EXPECT_EQ(1, model->rowCount());
 }
 
-TEST(AdjustableTableModel, enforcesRowsLimit)
+TEST(AdjustableTableModel, enforcesMaximumNumberOfRows)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", maxNRows);
@@ -54,7 +44,16 @@ TEST(AdjustableTableModel, enforcesRowsLimit)
     EXPECT_EQ(maxNRows, model->rowCount());
 }
 
-TEST(AdjustableTableModel, enforcesColumnsLimit)
+TEST(AdjustableTableModel, enforcesMinimumNumberOfColumns)
+{
+    AdjustableTableModel *model = new AdjustableTableModel();
+    model->setProperty("nCols", 1);
+    EXPECT_EQ(1, model->columnCount());
+    model->setProperty("nCols", 0);
+    EXPECT_EQ(1, model->columnCount());
+}
+
+TEST(AdjustableTableModel, enforcesMaximumNumberOfColumns)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nCols", maxNCols);
