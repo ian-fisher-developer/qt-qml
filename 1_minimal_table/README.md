@@ -4,7 +4,7 @@ A minimal QML table view displays data from a small, fixed, C++ table model.
 
 ## Description
 
-The first application is most basic. It focuses on discovering the tools and build details for a simple, tested, application that runs on the desktop and in a browser.
+The first exercise is most basic. It focuses on discovering the tools and build details for a simple, tested, application that runs on the desktop and in a browser.
 
 A C++ data model provides one code complication. It demonstrates that data models used with QtWidgets views may be re-used with QML/Quick views.
 
