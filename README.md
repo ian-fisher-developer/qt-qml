@@ -1,12 +1,12 @@
 # Learning About Qt QML/Quick
 
-My employer heavily uses Qt, with GUI elements from the mature QtWidgets module -- still the best choice for rich desktop applications.
+My employer heavily uses Qt, with GUI elements from the mature QtWidgets module -- the best choice for rich desktop applications.
 
-Many new projects (outside my employer) appear to implement GUIs with the QtQML/QtQuick modules, supporting more dynamic GUIs, better suited to mobile devices.
+Many new projects (outside my employer) implement GUIs with the QtQML/QtQuick modules. They support more dynamic visuals, good for the desktop and especially suited to other environments such as browsers and mobile devices.
 
 These are my personal investigations of QML, Quick, and CMake, learning by creating small, tested applications to run on the desktop and in a browser.
 
-## Applications
+## Exercises
 
 1. Minimal Table
     
@@ -14,7 +14,7 @@ These are my personal investigations of QML, Quick, and CMake, learning by creat
     
 2. Adjustable Table
 
-   IN PROGRESS: A QML table view displays data from a C++ table model, with controls for the table size.
+   A QML table view displays data from a C++ table model, with controls for the number of rows and columns.
 
 ## Configuration
 
@@ -22,7 +22,7 @@ QtQML and QtQuick are still evolving rapidly. Qt 6.2 introduced [many affordance
 
 Note that while the software is changing so quickly, the QML/Quick documents can be confusing, often including legacy advice, even under a Qt 6.3.0 banner. Try searching for CMake examples in the Qt/Examples/Qt-6.3.0 directory -- those concrete code implementations seem to be least ambiguous.
 
-For now, I use QtCreator to configure, build, and run. That is fine for these personal learning exercises. A more production-like environment would require build scripts, run scripts, etc.
+For now, I use QtCreator to configure, build, and run. That is fine for these personal learning exercises. A more production-like environment would require standalone build scripts and run scripts.
 
 Each application builds in a Desktop configuration, and in a WebAssembly configuration (runs in a browser).
 
