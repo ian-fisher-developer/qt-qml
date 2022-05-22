@@ -4,9 +4,11 @@ My employer heavily uses Qt, with GUI elements from the mature QtWidgets module 
 
 Many new projects (outside my employer) implement GUIs with the QtQML/QtQuick modules. They support more dynamic visuals, good for the desktop and especially suited to other environments such as browsers and mobile devices.
 
-These are my personal investigations of QML, Quick, and CMake, learning by creating small, tested applications to run on the desktop and in a browser.
+These are my personal investigations of QML, Quick, and CMake, learning by hand crafting small, tested applications to run on the desktop and in a browser.
 
 ## Exercises
+
+This is a brief summary of the exercises. Click the links above for more information. For example, link `1_minimal_table` has all details for the first exercise.
 
 1. Minimal Table
     
