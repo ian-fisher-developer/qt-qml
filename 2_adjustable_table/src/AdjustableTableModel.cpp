@@ -114,7 +114,9 @@ int AdjustableTableModel::columnCount(const QModelIndex &parent) const
 QVariant AdjustableTableModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid() || role != Qt::DisplayRole) return QVariant();
-    return columnLabel(index.column()) + rowLabel(index.row());
+    QString columnLabel = headerData(index.column(), Qt::Horizontal, role).toString();
+    QString rowLabel = headerData(index.row(), Qt::Vertical, role).toString();
+    return columnLabel + rowLabel;
 }
 
 QVariant AdjustableTableModel::headerData(int section, Qt::Orientation orientation, int role) const

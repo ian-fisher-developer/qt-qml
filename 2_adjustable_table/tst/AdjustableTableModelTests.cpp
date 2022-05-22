@@ -84,7 +84,7 @@ TEST(AdjustableTableModel, displaysHeaderColumnLetters)
     EXPECT_EQ("D", bottomRow.toStdString());
 }
 
-TEST(AdjustableTableModel, displaysDataAsColumnRowLabels)
+TEST(AdjustableTableModel, displaysDataAsColumnHeaderPlusRowHeader)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", 3);
