@@ -6,7 +6,7 @@ A QML table view displays data from a C++ table model, with controls for the num
 
 The second exercise has a C++ table data model with configurable dimensions, exposed to QML via Qt's Property System.
 
-The QML code describes the table view, with slider controls for the row and column dimensions. It connects the item properties, enabling the model/view interactions.
+The QML code describes the table view and its model, with slider controls for the row and column dimensions. It links the item properties, enabling the model/view/controls interactions.
 
 ## Tests
 
