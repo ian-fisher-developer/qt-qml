@@ -2,11 +2,19 @@
 #define AdjustableTableModel_H
 
 #include <QAbstractTableModel>
-#include <QtQml/qqml.h>
+#include <qqml.h>
 
+/**
+ * A table model with variable row/column dimensions, displaying data as A1, B1, etc.
+ * The model my be used with a QtWidgets QTableView, and with a QML TableView.
+ */
 class AdjustableTableModel : public QAbstractTableModel
 {
     Q_OBJECT
+
+    // Exercise implementation notes:
+    // - Expose the model to QML with QML_ELEMENT and the Qt Properties System
+    // - Sadly, the QML TableView does not natively support table headers
     Q_PROPERTY(int nRowsMax READ nRowsMax CONSTANT)
     Q_PROPERTY(int nRowsDefault READ nRowsDefault CONSTANT)
     Q_PROPERTY(int nRows READ nRows WRITE setNRows NOTIFY nRowsChanged)

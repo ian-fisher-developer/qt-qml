@@ -2,11 +2,18 @@
 #define MinimalTableModel_H
 
 #include <QAbstractTableModel>
-#include <QtQml/qqml.h>
+#include <qqml.h>
 
+/**
+ * A most simple table model, with fixed row/column dimensions and fixed data.
+ * The model my be used with a QtWidgets QTableView, and with a QML TableView.
+ */
 class MinimalTableModel : public QAbstractTableModel
 {
     Q_OBJECT
+
+    // Exercise implementation notes:
+    // - Expose the model to QML with QML_ELEMENT
     QML_ELEMENT
 
 public:
