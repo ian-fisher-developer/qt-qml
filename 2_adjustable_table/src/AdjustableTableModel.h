@@ -2,7 +2,7 @@
 #define AdjustableTableModel_H
 
 #include <QAbstractTableModel>
-#include <qqml.h>
+#include <QtQML/qqml.h>
 
 /**
  * A table model with variable row/column dimensions, displaying data as A1, B1, etc.

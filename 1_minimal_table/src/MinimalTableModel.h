@@ -2,7 +2,7 @@
 #define MinimalTableModel_H
 
 #include <QAbstractTableModel>
-#include <qqml.h>
+#include <QtQml/qqml.h>
 
 /**
  * A most simple table model, with fixed row/column dimensions and fixed data.

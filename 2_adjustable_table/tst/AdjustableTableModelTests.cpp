@@ -5,7 +5,7 @@ namespace {
 
 int maxNRows(9);
 int maxNCols(26);
-QString columnLabels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const QString colLabels("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
 } // unnamed namespace
 

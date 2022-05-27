@@ -4,24 +4,11 @@
 namespace{
 
 int maxNRows() {return 9;}
+int maxNCols() {return 26;}
+const QString colLabels() {return "ABCDEFGHIJKLMNOPQRSTUVWXYZ";}
 
 int defaultNRows() {return 5;}
-
-int maxNCols() {return 26;}
-
 int defaultNCols() {return 8;}
-
-QString rowLabel(int i)
-{
-    return QString::number(i+1);
-}
-
-QString columnLabel(int i)
-{
-    const QString columnLabels("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    if(i < 0 || i > columnLabels.length()-1) return QString("?");
-    return columnLabels[i];
-}
 
 int applyLimits(int n, int max)
 {
@@ -123,8 +110,9 @@ QVariant AdjustableTableModel::headerData(int section, Qt::Orientation orientati
 {
     if (role != Qt::DisplayRole) return QVariant();
     if (orientation == Qt::Vertical) {
-        return rowLabel(section);
+        return QString::number(section+1);
     }else{
-        return columnLabel(section);
+        if (section < 0 || section > colLabels().length()-1) return QString("?");
+        return colLabels()[section];
     }
 }
