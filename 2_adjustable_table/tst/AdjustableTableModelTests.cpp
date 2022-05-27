@@ -5,7 +5,6 @@ namespace {
 
 int maxNRows(9);
 int maxNCols(26);
-const QString colLabels("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
 } // unnamed namespace
 
@@ -65,12 +64,12 @@ TEST(AdjustableTableModel, enforcesMaximumNumberOfColumns)
 TEST(AdjustableTableModel, displaysHeaderRowNumbers)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
-    model->setProperty("nRows", 5);
+    model->setProperty("nRows", 3);
     model->setProperty("nCols", 1);
-    QString topRow(model->headerData(0, Qt::Vertical, Qt::DisplayRole).toString());
-    QString bottomRow(model->headerData(model->rowCount()-1, Qt::Vertical, Qt::DisplayRole).toString());
-    EXPECT_EQ("1", topRow.toStdString());
-    EXPECT_EQ("5", bottomRow.toStdString());
+    QString firstLabel(model->headerData(0, Qt::Vertical, Qt::DisplayRole).toString());
+    QString lastLabel(model->headerData(model->rowCount()-1, Qt::Vertical, Qt::DisplayRole).toString());
+    EXPECT_EQ("1", firstLabel.toStdString());
+    EXPECT_EQ("3", lastLabel.toStdString());
 }
 
 TEST(AdjustableTableModel, displaysHeaderColumnLetters)
@@ -78,10 +77,10 @@ TEST(AdjustableTableModel, displaysHeaderColumnLetters)
     AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", 1);
     model->setProperty("nCols", 4);
-    QString topRow(model->headerData(0, Qt::Horizontal, Qt::DisplayRole).toString());
-    QString bottomRow(model->headerData(model->columnCount()-1, Qt::Horizontal, Qt::DisplayRole).toString());
-    EXPECT_EQ("A", topRow.toStdString());
-    EXPECT_EQ("D", bottomRow.toStdString());
+    QString firstLabel(model->headerData(0, Qt::Horizontal, Qt::DisplayRole).toString());
+    QString lastLabel(model->headerData(model->columnCount()-1, Qt::Horizontal, Qt::DisplayRole).toString());
+    EXPECT_EQ("A", firstLabel.toStdString());
+    EXPECT_EQ("D", lastLabel.toStdString());
 }
 
 TEST(AdjustableTableModel, displaysDataAsColumnHeaderPlusRowHeader)
