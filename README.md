@@ -1,10 +1,10 @@
 # Learning About Qt QML/Quick
 
-My employer heavily uses Qt, with GUI elements from the mature QtWidgets module -- the best choice for rich desktop applications.
+I have much experience with Qt in my professional life, with GUI elements from the mature QtWidgets module -- the best choice for rich desktop applications.
 
-Many new projects (outside my employer) implement GUIs with the QtQML/QtQuick modules. They support more dynamic visuals, good for the desktop and especially suited to other environments such as browsers and mobile devices.
+Many new projects implement GUIs with the QtQML and QtQuick modules. They support more dynamic visuals, good for the desktop and especially suited to other environments such as browsers and mobile devices.
 
-These are my personal investigations of QML, Quick, and CMake, learning by hand-crafting small, tested applications to run on the desktop and in a browser.
+These are my personal investigations of Qt QML/Quick, learning by hand-crafting small, tested applications to run on the desktop and in a browser.
 
 ## Exercises
 

@@ -1,6 +1,6 @@
 # Minimal Table
 
-A minimal QML table view displays data from a small, fixed, C++ table model.
+A very simple QML table view displays data from a small, fixed, C++ table model.
 
 ## Description
 

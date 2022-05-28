@@ -22,11 +22,11 @@ int applyLimits(int n, int max)
 
 struct AdjustableTableModel::Impl
 {
-    int m_nRows, m_nCols;
+    int nRows, nCols;
 
-    Impl(int nRows, int nCols)
-        : m_nRows(applyLimits(nRows, maxNRows())),
-          m_nCols(applyLimits(nCols, maxNCols()))
+    Impl(int _nRows, int _nCols)
+        : nRows(applyLimits(_nRows, maxNRows())),
+          nCols(applyLimits(_nCols, maxNCols()))
     {}
 
 }; // AdjustableTableModel::Impl
@@ -35,12 +35,10 @@ struct AdjustableTableModel::Impl
 AdjustableTableModel::AdjustableTableModel(QObject *parent)
     : QAbstractTableModel(parent),
       pImpl(new Impl(defaultNRows(), defaultNCols()))
-{
-}
+{}
 
 AdjustableTableModel::~AdjustableTableModel()
-{
-}
+{}
 
 int AdjustableTableModel::nRowsMax() const
 {
@@ -54,7 +52,7 @@ int AdjustableTableModel::nRowsDefault() const
 
 int AdjustableTableModel::nRows() const
 {
-    return pImpl->m_nRows;
+    return pImpl->nRows;
 }
 
 int AdjustableTableModel::nColsMax() const
@@ -69,41 +67,41 @@ int AdjustableTableModel::nColsDefault() const
 
 int AdjustableTableModel::nCols() const
 {
-    return pImpl->m_nCols;
+    return pImpl->nCols;
 }
 
 void AdjustableTableModel::setNRows(int n)
 {
     beginResetModel();
-    pImpl->m_nRows = applyLimits(n, maxNRows());
+    pImpl->nRows = applyLimits(n, maxNRows());
     endResetModel();
 }
 
 void AdjustableTableModel::setNCols(int n)
 {
     beginResetModel();
-    pImpl->m_nCols = applyLimits(n, maxNCols());
+    pImpl->nCols = applyLimits(n, maxNCols());
     endResetModel();
 }
 
 int AdjustableTableModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) return 0;
-    return pImpl->m_nRows;
+    return pImpl->nRows;
 }
 
 int AdjustableTableModel::columnCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) return 0;
-    return pImpl->m_nCols;
+    return pImpl->nCols;
 }
 
 QVariant AdjustableTableModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid() || role != Qt::DisplayRole) return QVariant();
-    QString columnLabel = headerData(index.column(), Qt::Horizontal, role).toString();
+    QString colLabel = headerData(index.column(), Qt::Horizontal, role).toString();
     QString rowLabel = headerData(index.row(), Qt::Vertical, role).toString();
-    return columnLabel + rowLabel;
+    return colLabel + rowLabel;
 }
 
 QVariant AdjustableTableModel::headerData(int section, Qt::Orientation orientation, int role) const

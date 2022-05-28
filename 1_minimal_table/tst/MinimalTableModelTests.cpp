@@ -16,15 +16,15 @@ TEST(MinimalTableModel, hasThreeColumns)
 TEST(MinimalTableModel, displays00StringInTopLeftCell)
 {
     MinimalTableModel *model = new MinimalTableModel;
-    QModelIndex topLeft = model->index(0, 0);
-    QString result(model->data(topLeft, Qt::DisplayRole).toString());
-    EXPECT_EQ("00", result.toStdString());
+    QModelIndex index = model->index(0, 0);
+    QString cellDisplay(model->data(index, Qt::DisplayRole).toString());
+    EXPECT_EQ("00", cellDisplay.toStdString());
 }
 
 TEST(MinimalTableModel, displays12StringInBottomRightCell)
 {
     MinimalTableModel *model = new MinimalTableModel;
-    QModelIndex bottomRight = model->index(model->rowCount()-1, model->columnCount()-1);
-    QString result(model->data(bottomRight, Qt::DisplayRole).toString());
-    EXPECT_EQ("12", result.toStdString());
+    QModelIndex index = model->index(model->rowCount()-1, model->columnCount()-1);
+    QString cellDisplay(model->data(index, Qt::DisplayRole).toString());
+    EXPECT_EQ("12", cellDisplay.toStdString());
 }
