@@ -34,7 +34,7 @@ T.Slider {
         height: control.horizontal ? implicitHeight : control.availableHeight
         radius: 3
         //color: control.palette.midlight
-        color: "#00ffffff"
+        //color: "#ffffff"
         scale: control.horizontal && control.mirrored ? -1 : 1
 
         Rectangle {
@@ -51,8 +51,9 @@ T.Slider {
         }
 
         Rectangle {
-            x: control.horizontal ? x : x + parent.width
-            y: control.horizontal ? y + parent.height : y
+            // X/Y positions are relative to the parent.
+            x: control.horizontal ? 0 : parent.width
+            y: control.horizontal ? parent.height: 0
             width: control.horizontal ? parent.width : 3
             height: control.horizontal ? 3 : parent.height
             gradient: Gradient {
