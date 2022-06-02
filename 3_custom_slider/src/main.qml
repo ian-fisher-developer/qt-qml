@@ -4,7 +4,7 @@ import AdjustableTableModel
 
 Window {
     width: 800
-    height: 250
+    height: 350
     visible: true
     color: "gray"
     title: qsTr("Adjustable Table")

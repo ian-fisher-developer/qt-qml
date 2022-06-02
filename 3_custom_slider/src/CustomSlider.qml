@@ -1,4 +1,5 @@
-// A custom slider control that started life as a copy of Qt's BasicSlider.
+// A custom slider control that started life as a copy of Qt's BasicSlider,
+// switched the handle rectangle for an image, put color bars alongside, etc.
 
 import QtQuick
 import QtQuick.Controls.impl
@@ -13,10 +14,13 @@ T.Slider {
                              implicitHandleHeight + topPadding + bottomPadding)
 
     padding: 6
-
+    leftInset: 3
+    rightInset: 3
+    topInset: 3
+    bottomInset: 3
 
     handle: Image {
-        source: "VerticalSliderHandle"
+        source: control.horizontal ? "HorizontalSliderHandle" : "VerticalSliderHandle"
         sourceSize.width: 50
         sourceSize.height: 50
         x: control.leftPadding + (control.horizontal ? control.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
@@ -37,8 +41,10 @@ T.Slider {
 
         Rectangle {
             // The left/upper colorbar
-            width: control.horizontal ? parent.width : 3
-            height: control.horizontal ? 3 : parent.height
+            x: control.horizontal ? leftInset+control.handle.width/2 : 0
+            y: control.horizontal ? 0 : topInset+control.handle.height/2
+            width: control.horizontal ? parent.width-leftInset-rightInset-control.handle.width : leftInset
+            height: control.horizontal ? topInset : parent.height-topInset-bottomInset-control.handle.height
             gradient: ColdHotGradient {
                 orientation: control.orientation
             }
@@ -47,10 +53,10 @@ T.Slider {
         Rectangle {
             // The lower/right color bar
             // Note that X/Y positions are relative to the parent.
-            x: control.horizontal ? 0 : parent.width
-            y: control.horizontal ? parent.height: 0
-            width: control.horizontal ? parent.width : 3
-            height: control.horizontal ? 3 : parent.height
+            x: control.horizontal ? leftInset+control.handle.width/2 : parent.width-rightInset
+            y: control.horizontal ? parent.height-bottomInset : topInset+control.handle.height/2
+            width: control.horizontal ? parent.width-leftInset-rightInset-control.handle.width : rightInset
+            height: control.horizontal ? bottomInset : parent.height-topInset-bottomInset-control.handle.height
             gradient: ColdHotGradient {
                 orientation: control.orientation
             }
