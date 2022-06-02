@@ -24,6 +24,6 @@ target_link_libraries(adjustable_table PUBLIC
 qt_add_qml_module(adjustable_table
     URI AdjustableTableModel
     VERSION 1.0
-    QML_FILES main.qml CustomSlider.qml
+    QML_FILES main.qml CustomSlider.qml ColdHotGradient.qml
     NO_RESOURCE_TARGET_PATH
 )

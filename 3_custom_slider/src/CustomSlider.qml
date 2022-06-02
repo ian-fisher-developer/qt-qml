@@ -14,6 +14,7 @@ T.Slider {
 
     padding: 6
 
+
     handle: Rectangle {
         x: control.leftPadding + (control.horizontal ? control.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (control.horizontal ? (control.availableHeight - height) / 2 : control.visualPosition * (control.availableHeight - height))
@@ -40,13 +41,8 @@ T.Slider {
         Rectangle {
             width: control.horizontal ? parent.width : 3
             height: control.horizontal ? 3 : parent.height
-            gradient: Gradient {
+            gradient: ColdHotGradient {
                 orientation: control.orientation
-                GradientStop { position: 0.0; color: "blue" }
-                GradientStop { position: 0.4; color: "green" }
-                GradientStop { position: 0.6; color: "yellow" }
-                GradientStop { position: 0.7; color: "orange" }
-                GradientStop { position: 1.0; color: "red" }
             }
         }
 
@@ -56,13 +52,8 @@ T.Slider {
             y: control.horizontal ? parent.height: 0
             width: control.horizontal ? parent.width : 3
             height: control.horizontal ? 3 : parent.height
-            gradient: Gradient {
+            gradient: ColdHotGradient {
                 orientation: control.orientation
-                GradientStop { position: 0.0; color: "blue" }
-                GradientStop { position: 0.4; color: "green" }
-                GradientStop { position: 0.6; color: "yellow" }
-                GradientStop { position: 0.7; color: "orange" }
-                GradientStop { position: 1.0; color: "red" }
             }
         }
     }
