@@ -15,15 +15,12 @@ T.Slider {
     padding: 6
 
 
-    handle: Rectangle {
+    handle: Image {
+        source: "VerticalSliderHandle"
+        sourceSize.width: 50
+        sourceSize.height: 50
         x: control.leftPadding + (control.horizontal ? control.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (control.horizontal ? (control.availableHeight - height) / 2 : control.visualPosition * (control.availableHeight - height))
-        implicitWidth: control.horizontal ? 40 : 20
-        implicitHeight: control.horizontal ? 20: 40
-        radius: 3
-        color: control.pressed ? control.palette.light : control.palette.window
-        border.width: control.visualFocus ? 2 : 1
-        border.color: control.visualFocus ? control.palette.highlight : control.enabled ? control.palette.mid : control.palette.midlight
     }
 
     background: Rectangle {
@@ -35,10 +32,11 @@ T.Slider {
         height: control.horizontal ? implicitHeight : control.availableHeight
         radius: 3
         //color: control.palette.midlight
-        //color: "#ffffff"
+        color: "#00ffffff"
         scale: control.horizontal && control.mirrored ? -1 : 1
 
         Rectangle {
+            // The left/upper colorbar
             width: control.horizontal ? parent.width : 3
             height: control.horizontal ? 3 : parent.height
             gradient: ColdHotGradient {
@@ -47,7 +45,8 @@ T.Slider {
         }
 
         Rectangle {
-            // X/Y positions are relative to the parent.
+            // The lower/right color bar
+            // Note that X/Y positions are relative to the parent.
             x: control.horizontal ? 0 : parent.width
             y: control.horizontal ? parent.height: 0
             width: control.horizontal ? parent.width : 3
