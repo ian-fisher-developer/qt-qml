@@ -18,6 +18,10 @@ This is a brief summary of the exercises. Click the links above for more informa
 
    A QML table view displays data from a C++ table model, with controls for the number of rows and columns.
 
+3. Custom Control
+
+   IN PROGRESS: Builds on the adjustable table with custom controls
+
 ## Configuration
 
 QtQML and QtQuick are still evolving rapidly. Qt 6.2 introduced [many affordances][CO01]. These exercises use Qt 6.3.0, the latest at the time of writing. Each application is built via CMake, recommended by the latest QML/Quick documents for the new Qt/CMake build helpers.
