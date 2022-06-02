@@ -48,17 +48,32 @@ T.Slider {
             gradient: ColdHotGradient {
                 orientation: control.orientation
             }
+            Rectangle {
+                // Mask the colorbar above the control position
+                x: control.horizontal ? control.handle.x : 0
+                y: control.horizontal ? 0 : control.handle.y
+                width: control.horizontal ? parent.width-control.handle.x : leftInset
+                height: control.horizontal ? topInset : parent.height-control.handle.y
+                color: control.palette.window
+            }
         }
 
         Rectangle {
             // The lower/right color bar
-            // Note that X/Y positions are relative to the parent.
             x: control.horizontal ? leftInset+control.handle.width/2 : parent.width-rightInset
             y: control.horizontal ? parent.height-bottomInset : topInset+control.handle.height/2
             width: control.horizontal ? parent.width-leftInset-rightInset-control.handle.width : rightInset
             height: control.horizontal ? bottomInset : parent.height-topInset-bottomInset-control.handle.height
             gradient: ColdHotGradient {
                 orientation: control.orientation
+            }
+            Rectangle {
+                // Mask the colorbar above the control position
+                x: control.horizontal ? control.handle.x : parent.width-rightInset
+                y: control.horizontal ? parent.height-bottomInset : control.handle.y
+                width: control.horizontal ? parent.width-control.handle.x : rightInset
+                height: control.horizontal ? bottomInset : parent.height-control.handle.y
+                color: control.palette.window
             }
         }
     }

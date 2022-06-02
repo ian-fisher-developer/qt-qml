@@ -4,9 +4,8 @@ import AdjustableTableModel
 
 Window {
     width: 800
-    height: 350
+    height: 320
     visible: true
-    color: "gray"
     title: qsTr("Adjustable Table")
 
     Grid {
