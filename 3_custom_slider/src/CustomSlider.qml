@@ -1,5 +1,5 @@
-// A custom slider control that started life as a copy of Qt's BasicSlider,
-// switched the handle rectangle for an image, put color bars alongside, etc.
+// A custom slider control that started life as a copy of Qt's BasicSlider.
+// Switched the handle rectangle for images; put color annotation alongside.
 
 import QtQuick
 import QtQuick.Controls.impl
@@ -13,11 +13,11 @@ T.Slider {
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              implicitHandleHeight + topPadding + bottomPadding)
 
-    padding: 6
-    leftInset: 3
-    rightInset: 3
-    topInset: 3
-    bottomInset: 3
+    padding: 10
+    leftInset: 5
+    rightInset: 5
+    topInset: 5
+    bottomInset: 5
 
     handle: Image {
         source: control.horizontal ? "HorizontalSliderHandle" : "VerticalSliderHandle"
@@ -35,12 +35,11 @@ T.Slider {
         width: control.horizontal ? control.availableWidth : implicitWidth
         height: control.horizontal ? implicitHeight : control.availableHeight
         radius: 3
-        //color: control.palette.midlight
         color: "#00ffffff"
         scale: control.horizontal && control.mirrored ? -1 : 1
 
         Rectangle {
-            // The left/upper colorbar
+            // The left/upper color annotation
             x: control.horizontal ? leftInset+control.handle.width/2 : 0
             y: control.horizontal ? 0 : topInset+control.handle.height/2
             width: control.horizontal ? parent.width-leftInset-rightInset-control.handle.width : leftInset
@@ -48,8 +47,19 @@ T.Slider {
             gradient: ColdHotGradient {
                 orientation: control.orientation
             }
+            Repeater {
+                // Mask the color annotation at intervals, for a pseudo-gradation effect
+                model: 9
+                Rectangle {
+                    x: control.horizontal ? (index+1)*parent.width/10 : 0
+                    y: control.horizontal ? 0 : (index+1)*parent.height/10
+                    width: control.horizontal ? parent.width/100 : leftInset
+                    height: control.horizontal ? topInset : parent.height/100
+                    color: control.palette.window
+                }
+            }
             Rectangle {
-                // Mask the colorbar above the control position
+                // Mask the color annotation beyond the control position
                 x: control.horizontal ? control.handle.x : 0
                 y: control.horizontal ? 0 : control.handle.y
                 width: control.horizontal ? parent.width-control.handle.x : leftInset
@@ -59,7 +69,7 @@ T.Slider {
         }
 
         Rectangle {
-            // The lower/right color bar
+            // The lower/right color annotation
             x: control.horizontal ? leftInset+control.handle.width/2 : parent.width-rightInset
             y: control.horizontal ? parent.height-bottomInset : topInset+control.handle.height/2
             width: control.horizontal ? parent.width-leftInset-rightInset-control.handle.width : rightInset
@@ -67,8 +77,19 @@ T.Slider {
             gradient: ColdHotGradient {
                 orientation: control.orientation
             }
+            Repeater {
+                // Mask the color annotation at intervals, for a pseudo-gradation effect
+                model: 9
+                Rectangle {
+                    x: control.horizontal ? (index+1)*parent.width/10 : parent.width-rightInset
+                    y: control.horizontal ? parent.height-bottomInset : (index+1)*parent.height/10
+                    width: control.horizontal ? parent.width/100 : rightInset
+                    height: control.horizontal ? bottomInset : parent.height/100
+                    color: control.palette.window
+                }
+            }
             Rectangle {
-                // Mask the colorbar above the control position
+                // Mask the color annotation beyond the control position
                 x: control.horizontal ? control.handle.x : parent.width-rightInset
                 y: control.horizontal ? parent.height-bottomInset : control.handle.y
                 width: control.horizontal ? parent.width-control.handle.x : rightInset

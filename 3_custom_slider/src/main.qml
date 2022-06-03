@@ -6,7 +6,7 @@ Window {
     width: 800
     height: 320
     visible: true
-    title: qsTr("Adjustable Table")
+    title: qsTr("Custom Slider")
 
     Grid {
         columns: 2
@@ -20,6 +20,7 @@ Window {
 
         CustomSlider {
             id: nColsControl
+            width: parent.width/2
             orientation: Qt.Horizontal
             from: 1
             to: adjustableTableModel.nColsMax
