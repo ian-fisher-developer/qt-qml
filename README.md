@@ -20,7 +20,7 @@ This is a brief summary of the exercises. Click the links above for more informa
 
 3. Custom Control
 
-   IN PROGRESS: Builds on the adjustable table with custom controls
+   Builds on the adjustable table, replacing the standard controls with custom versions.
 
 ## Configuration
 
