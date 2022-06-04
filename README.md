@@ -22,6 +22,11 @@ This is a brief summary of the exercises. Click the links above for more informa
 
    Builds on the adjustable table, replacing the standard controls with custom versions.
 
+4. Multiple Controls
+
+   IN PROGRESS: Many GUIs offer multiple controls for the same function.
+
+
 ## Configuration
 
 QtQML and QtQuick are still evolving rapidly. Qt 6.2 introduced [many affordances][CO01]. These exercises use Qt 6.3.0, the latest at the time of writing. Each application is built via CMake, recommended by the latest QML/Quick documents for the new Qt/CMake build helpers.
