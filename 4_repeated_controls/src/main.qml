@@ -25,9 +25,10 @@ Window {
                 orientation: Qt.Horizontal
                 from: 1
                 to: adjustableTableModel.nColsMax
-                value: adjustableTableModel.nCols
+                value: nColsDial.value
             }
             Dial {
+                id: nColsDial
                 from: nColsSlider.from
                 to: nColsSlider.to
                 value: nColsSlider.value
@@ -40,9 +41,10 @@ Window {
                 orientation: Qt.Vertical
                 from: adjustableTableModel.nRowsMax
                 to: 1
-                value: adjustableTableModel.nRows
+                value: nRowsDial.value
             }
             Dial {
+                id: nRowsDial
                 from: nRowsSlider.to
                 to: nRowsSlider.from
                 value: nRowsSlider.value
