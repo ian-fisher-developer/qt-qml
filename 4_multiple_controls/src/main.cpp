@@ -6,6 +6,9 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    app.setOrganizationName("Some Company");
+    app.setOrganizationDomain("somecompany.com");
+    app.setApplicationName("Multiple Controls");
 
     QQmlApplicationEngine engine;
 
