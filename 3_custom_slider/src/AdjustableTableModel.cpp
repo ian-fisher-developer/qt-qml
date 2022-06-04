@@ -45,11 +45,6 @@ int AdjustableTableModel::nRowsMax() const
     return maxNRows();
 }
 
-int AdjustableTableModel::nRowsDefault() const
-{
-    return defaultNRows();
-}
-
 int AdjustableTableModel::nRows() const
 {
     return pImpl->nRows;
@@ -58,11 +53,6 @@ int AdjustableTableModel::nRows() const
 int AdjustableTableModel::nColsMax() const
 {
     return maxNCols();
-}
-
-int AdjustableTableModel::nColsDefault() const
-{
-    return defaultNCols();
 }
 
 int AdjustableTableModel::nCols() const

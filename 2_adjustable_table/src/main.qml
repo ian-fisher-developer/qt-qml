@@ -24,7 +24,7 @@ Window {
             orientation: Qt.Horizontal
             from: 1
             to: adjustableTableModel.nColsMax
-            value: adjustableTableModel.nColsDefault
+            value: adjustableTableModel.nCols
         }
 
         Slider {
@@ -32,7 +32,7 @@ Window {
             orientation: Qt.Vertical
             from: adjustableTableModel.nRowsMax
             to: 1
-            value: adjustableTableModel.nRowsDefault
+            value: adjustableTableModel.nRows
         }
 
         TableView {

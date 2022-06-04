@@ -19,8 +19,6 @@ TEST(AdjustableTableModel, hasMaximumDimensions)
 TEST(AdjustableTableModel, hasDefaultDimensions)
 {
     AdjustableTableModel *model = new AdjustableTableModel();
-    EXPECT_EQ(5, model->nRowsDefault());
-    EXPECT_EQ(8, model->nColsDefault());
     EXPECT_EQ(5, model->rowCount());
     EXPECT_EQ(8, model->columnCount());
 }
