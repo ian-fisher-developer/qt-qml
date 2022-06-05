@@ -3,6 +3,11 @@ import QtQuick.Controls
 import AdjustableTableModel
 
 Item {
+
+    id: adjustableTable
+    property int nRows: 3
+    property int nCols: 5
+
     Grid {
         columns: 2
         spacing: 20
@@ -19,13 +24,28 @@ Item {
                 orientation: Qt.Horizontal
                 from: 1
                 to: adjustableTableModel.nColsMax
-                value: nColsDial.value
+                value: adjustableTable.nCols
+                onValueChanged: {
+                    adjustableTable.nCols = value
+                }
+            }
+            SpinBox {
+                id: nColsSpinBox
+                from: 1
+                to: adjustableTableModel.nColsMax
+                value: adjustableTable.nCols
+                onValueChanged: {
+                    adjustableTable.nCols = value
+                }
             }
             Dial {
                 id: nColsDial
-                from: nColsSlider.from
-                to: nColsSlider.to
-                value: nColsSlider.value
+                from: 1
+                to: adjustableTableModel.nColsMax
+                value: adjustableTable.nCols
+                onValueChanged: {
+                    adjustableTable.nCols = value
+                }
             }
         }
 
@@ -35,13 +55,28 @@ Item {
                 orientation: Qt.Vertical
                 from: adjustableTableModel.nRowsMax
                 to: 1
-                value: nRowsDial.value
+                value: adjustableTable.nRows
+                onValueChanged: {
+                    adjustableTable.nRows = value
+                }
+            }
+            SpinBox {
+                id: nRowsSpinBox
+                from: 1
+                to: adjustableTableModel.nRowsMax
+                value: adjustableTable.nRows
+                onValueChanged: {
+                    adjustableTable.nRows = value
+                }
             }
             Dial {
                 id: nRowsDial
-                from: nRowsSlider.to
-                to: nRowsSlider.from
-                value: nRowsSlider.value
+                from: 1
+                to: adjustableTableModel.nRowsMax
+                value: adjustableTable.nRows
+                onValueChanged: {
+                    adjustableTable.nRows = value
+                }
             }
         }
 
@@ -52,8 +87,8 @@ Item {
             columnSpacing: 10
             model: AdjustableTableModel {
                 id: adjustableTableModel
-                nRows: nRowsSlider.value
-                nCols: nColsSlider.value
+                nRows: adjustableTable.nRows
+                nCols: adjustableTable.nCols
             }
             delegate: Text {
                 text: display
