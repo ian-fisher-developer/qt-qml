@@ -4,6 +4,14 @@ import AdjustableTableModel
 
 Item {
 
+    // Multiple controls exercise implementation notes:
+    // - synchronizing many items suggests common properties
+    // - the six controls and the table all depend on the common properties
+    //   - when a common property changes all its dependencies update
+    // - the dependencies are uni-directional
+    //   - to complete the synchronization, each control actively updates
+    //     the corresponding common property when its value changes
+
     id: adjustableTable
     property int nRows: 5
     property int nCols: 8
