@@ -4,7 +4,7 @@ import AdjustableTableModel
 
 Item {
 
-    // Multiple controls exercise implementation notes:
+    // Synchronized controls exercise implementation notes:
     // - synchronizing many items suggests common properties
     // - the six controls and the table all depend on the common properties
     //   - when a common property changes all its dependencies update
