@@ -62,15 +62,21 @@ int AdjustableTableModel::nCols() const
 
 void AdjustableTableModel::setNRows(int n)
 {
+    int nRows = applyLimits(n, maxNRows());
+    if(nRows == pImpl->nRows) return
+
     beginResetModel();
-    pImpl->nRows = applyLimits(n, maxNRows());
+    pImpl->nRows = nRows;
     endResetModel();
 }
 
 void AdjustableTableModel::setNCols(int n)
 {
+    int nCols = applyLimits(n, maxNCols());
+    if(nCols == pImpl->nCols) return;
+
     beginResetModel();
-    pImpl->nCols = applyLimits(n, maxNCols());
+    pImpl->nCols = nCols;
     endResetModel();
 }
 
