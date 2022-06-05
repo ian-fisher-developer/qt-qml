@@ -5,8 +5,8 @@ import AdjustableTableModel
 Item {
 
     id: adjustableTable
-    property int nRows: 3
-    property int nCols: 5
+    property int nRows: 5
+    property int nCols: 8
 
     Grid {
         columns: 2
@@ -19,6 +19,8 @@ Item {
         }
 
         Row {
+            height: 30
+            spacing: 30
             Slider {
                 id: nColsSlider
                 orientation: Qt.Horizontal
@@ -40,6 +42,7 @@ Item {
             }
             Dial {
                 id: nColsDial
+                height: parent.height
                 from: 1
                 to: adjustableTableModel.nColsMax
                 value: adjustableTable.nCols
@@ -50,6 +53,8 @@ Item {
         }
 
         Column {
+            width: 30
+            spacing: 10
             Slider {
                 id: nRowsSlider
                 orientation: Qt.Vertical
@@ -62,6 +67,7 @@ Item {
             }
             SpinBox {
                 id: nRowsSpinBox
+                width: parent.width // needed to specify this -- shouldn't it happen automatically?
                 from: 1
                 to: adjustableTableModel.nRowsMax
                 value: adjustableTable.nRows
@@ -71,6 +77,7 @@ Item {
             }
             Dial {
                 id: nRowsDial
+                width: parent.width // needed to specify this -- shouldn't it happen automatically?
                 from: 1
                 to: adjustableTableModel.nRowsMax
                 value: adjustableTable.nRows

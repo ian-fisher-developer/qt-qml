@@ -2,7 +2,7 @@ import QtQuick
 
 Window {
     width: 800
-    height: 250
+    height: 280
     visible: true
     title: qsTr("Multiple Controls")
 
