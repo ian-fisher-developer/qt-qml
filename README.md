@@ -12,7 +12,7 @@ This is a brief summary of the exercises. Click the links above for more informa
 
 1. Minimal Table
     
-   A minimal QML table view displays data from a small, fixed, C++ table model.
+   A minimal QML table view displays data from a small, fixed, C++ table model -- this simple exercise helped discover the configuration details.
     
 2. Adjustable Table
 
