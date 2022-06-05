@@ -22,9 +22,9 @@ This is a brief summary of the exercises. Click the links above for more informa
 
    Builds on the adjustable table, replacing the standard controls with custom versions.
 
-4. Multiple Controls
+4. Synchronized Controls
 
-   IN PROGRESS: Many GUIs offer multiple controls for the same function.
+   Adds more controls to the adjustable table exercise -- many GUIs offer multiple, synchronized controls for the same function.
 
 
 ## Configuration
