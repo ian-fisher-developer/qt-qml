@@ -17,26 +17,26 @@ The same google-test suite from exercise two defines the variability of the adju
 ```
 [==========] Running 9 tests from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 9 tests from AdjustableTableModel
-[ RUN      ] AdjustableTableModel.hasMaximumDimensions
-[       OK ] AdjustableTableModel.hasMaximumDimensions (0 ms)
-[ RUN      ] AdjustableTableModel.hasDefaultDimensions
-[       OK ] AdjustableTableModel.hasDefaultDimensions (0 ms)
-[ RUN      ] AdjustableTableModel.enforcesMinimumNumberOfRows
-[       OK ] AdjustableTableModel.enforcesMinimumNumberOfRows (0 ms)
-[ RUN      ] AdjustableTableModel.enforcesMaximumNumberOfRows
-[       OK ] AdjustableTableModel.enforcesMaximumNumberOfRows (0 ms)
-[ RUN      ] AdjustableTableModel.enforcesMinimumNumberOfColumns
-[       OK ] AdjustableTableModel.enforcesMinimumNumberOfColumns (0 ms)
-[ RUN      ] AdjustableTableModel.enforcesMaximumNumberOfColumns
-[       OK ] AdjustableTableModel.enforcesMaximumNumberOfColumns (0 ms)
-[ RUN      ] AdjustableTableModel.displaysHeaderRowNumbers
-[       OK ] AdjustableTableModel.displaysHeaderRowNumbers (0 ms)
-[ RUN      ] AdjustableTableModel.displaysHeaderColumnLetters
-[       OK ] AdjustableTableModel.displaysHeaderColumnLetters (0 ms)
-[ RUN      ] AdjustableTableModel.displaysDataAsColumnHeaderPlusRowHeader
-[       OK ] AdjustableTableModel.displaysDataAsColumnHeaderPlusRowHeader (0 ms)
-[----------] 9 tests from AdjustableTableModel (0 ms total)
+[----------] 9 tests from AdjustableTableModelTest
+[ RUN      ] AdjustableTableModelTest.hasMaximumDimensions
+[       OK ] AdjustableTableModelTest.hasMaximumDimensions (0 ms)
+[ RUN      ] AdjustableTableModelTest.hasDefaultDimensions
+[       OK ] AdjustableTableModelTest.hasDefaultDimensions (0 ms)
+[ RUN      ] AdjustableTableModelTest.enforcesMinimumNumberOfRows
+[       OK ] AdjustableTableModelTest.enforcesMinimumNumberOfRows (0 ms)
+[ RUN      ] AdjustableTableModelTest.enforcesMaximumNumberOfRows
+[       OK ] AdjustableTableModelTest.enforcesMaximumNumberOfRows (0 ms)
+[ RUN      ] AdjustableTableModelTest.enforcesMinimumNumberOfColumns
+[       OK ] AdjustableTableModelTest.enforcesMinimumNumberOfColumns (0 ms)
+[ RUN      ] AdjustableTableModelTest.enforcesMaximumNumberOfColumns
+[       OK ] AdjustableTableModelTest.enforcesMaximumNumberOfColumns (0 ms)
+[ RUN      ] AdjustableTableModelTest.displaysHeaderRowNumbers
+[       OK ] AdjustableTableModelTest.displaysHeaderRowNumbers (0 ms)
+[ RUN      ] AdjustableTableModelTest.displaysHeaderColumnLetters
+[       OK ] AdjustableTableModelTest.displaysHeaderColumnLetters (0 ms)
+[ RUN      ] AdjustableTableModelTest.displaysDataAsColumnHeaderPlusRowHeader
+[       OK ] AdjustableTableModelTest.displaysDataAsColumnHeaderPlusRowHeader (0 ms)
+[----------] 9 tests from AdjustableTableModelTest (0 ms total)
 
 [----------] Global test environment tear-down
 [==========] 9 tests from 1 test suite ran. (0 ms total)

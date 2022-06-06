@@ -1,6 +1,7 @@
 #include "../src/AdjustableTableModel.h"
 #include <gtest/gtest.h>
 
+
 namespace {
 
 int maxNRows(9);
@@ -9,59 +10,70 @@ int maxNCols(26);
 } // unnamed namespace
 
 
-TEST(AdjustableTableModel, hasMaximumDimensions)
+class AdjustableTableModelTest : public ::testing::Test
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
+protected:
+    AdjustableTableModel *model;
+
+    void SetUp() override
+    {
+        model = new AdjustableTableModel();
+    }
+
+    void TearDown() override
+    {
+        delete model;
+    }
+
+}; // class AdjustableTableModelTest
+
+
+TEST_F(AdjustableTableModelTest, hasMaximumDimensions)
+{
     EXPECT_EQ(maxNRows, model->nRowsMax());
     EXPECT_EQ(maxNCols, model->nColsMax());
 }
 
-TEST(AdjustableTableModel, hasDefaultDimensions)
+TEST_F(AdjustableTableModelTest, hasDefaultDimensions)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     EXPECT_EQ(5, model->rowCount());
     EXPECT_EQ(8, model->columnCount());
 }
 
-TEST(AdjustableTableModel, enforcesMinimumNumberOfRows)
+TEST_F(AdjustableTableModelTest, enforcesMinimumNumberOfRows)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", 1);
     EXPECT_EQ(1, model->rowCount());
     model->setProperty("nRows", 0);
     EXPECT_EQ(1, model->rowCount());
 }
 
-TEST(AdjustableTableModel, enforcesMaximumNumberOfRows)
+TEST_F(AdjustableTableModelTest, enforcesMaximumNumberOfRows)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", maxNRows);
     EXPECT_EQ(maxNRows, model->rowCount());
     model->setProperty("nRows", maxNRows+1);
     EXPECT_EQ(maxNRows, model->rowCount());
 }
 
-TEST(AdjustableTableModel, enforcesMinimumNumberOfColumns)
+TEST_F(AdjustableTableModelTest, enforcesMinimumNumberOfColumns)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nCols", 1);
     EXPECT_EQ(1, model->columnCount());
     model->setProperty("nCols", 0);
     EXPECT_EQ(1, model->columnCount());
 }
 
-TEST(AdjustableTableModel, enforcesMaximumNumberOfColumns)
+TEST_F(AdjustableTableModelTest, enforcesMaximumNumberOfColumns)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nCols", maxNCols);
     EXPECT_EQ(maxNCols, model->columnCount());
     model->setProperty("nCols", maxNCols+1);
     EXPECT_EQ(maxNCols, model->columnCount());
 }
 
-TEST(AdjustableTableModel, displaysHeaderRowNumbers)
+TEST_F(AdjustableTableModelTest, displaysHeaderRowNumbers)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", 3);
     model->setProperty("nCols", 1);
     QString firstLabel(model->headerData(0, Qt::Vertical, Qt::DisplayRole).toString());
@@ -70,9 +82,8 @@ TEST(AdjustableTableModel, displaysHeaderRowNumbers)
     EXPECT_EQ("3", lastLabel.toStdString());
 }
 
-TEST(AdjustableTableModel, displaysHeaderColumnLetters)
+TEST_F(AdjustableTableModelTest, displaysHeaderColumnLetters)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", 1);
     model->setProperty("nCols", 4);
     QString firstLabel(model->headerData(0, Qt::Horizontal, Qt::DisplayRole).toString());
@@ -81,9 +92,8 @@ TEST(AdjustableTableModel, displaysHeaderColumnLetters)
     EXPECT_EQ("D", lastLabel.toStdString());
 }
 
-TEST(AdjustableTableModel, displaysDataAsColumnHeaderPlusRowHeader)
+TEST_F(AdjustableTableModelTest, displaysDataAsColumnHeaderPlusRowHeader)
 {
-    AdjustableTableModel *model = new AdjustableTableModel();
     model->setProperty("nRows", 3);
     model->setProperty("nCols", 5);
     QModelIndex topLeftIndex = model->index(0, 0);
