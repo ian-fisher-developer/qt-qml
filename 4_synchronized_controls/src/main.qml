@@ -1,8 +1,8 @@
 import QtQuick
 
 Window {
-    width: 800
-    height: 280
+    width: 850
+    height: 350
     visible: true
     title: qsTr("Synchronized Controls")
 

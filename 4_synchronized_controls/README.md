@@ -48,3 +48,9 @@ The same google-test suite from exercise two defines the variability of the adju
 
 ![Running on the desktop 1](Desktop1.png)
 ![Running on the desktop 2](Desktop2.png)
+
+
+## Browser Application
+
+![Running in a browser1](Browser1.png)
+![Running in a browser2](Browser2.png)

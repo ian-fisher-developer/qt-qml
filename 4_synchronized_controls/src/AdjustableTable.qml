@@ -27,20 +27,11 @@ Item {
         }
 
         Row {
-            height: 30
+            height: 100
             spacing: 30
-            Slider {
-                id: nColsSlider
-                orientation: Qt.Horizontal
-                from: 1
-                to: adjustableTableModel.nColsMax
-                value: adjustableTable.nCols
-                onValueChanged: {
-                    adjustableTable.nCols = value
-                }
-            }
             SpinBox {
                 id: nColsSpinBox
+                anchors.verticalCenter: parent.verticalCenter
                 from: 1
                 to: adjustableTableModel.nColsMax
                 value: adjustableTable.nCols
@@ -58,21 +49,22 @@ Item {
                     adjustableTable.nCols = value
                 }
             }
+            Slider {
+                id: nColsSlider
+                orientation: Qt.Horizontal
+                anchors.verticalCenter: parent.verticalCenter
+                from: 1
+                to: adjustableTableModel.nColsMax
+                value: adjustableTable.nCols
+                onValueChanged: {
+                    adjustableTable.nCols = value
+                }
+            }
         }
 
         Column {
-            width: 30
+            width: 100
             spacing: 10
-            Slider {
-                id: nRowsSlider
-                orientation: Qt.Vertical
-                from: adjustableTableModel.nRowsMax
-                to: 1
-                value: adjustableTable.nRows
-                onValueChanged: {
-                    adjustableTable.nRows = value
-                }
-            }
             SpinBox {
                 id: nRowsSpinBox
                 width: parent.width // needed to specify this -- shouldn't it happen automatically?
@@ -88,6 +80,17 @@ Item {
                 width: parent.width // needed to specify this -- shouldn't it happen automatically?
                 from: 1
                 to: adjustableTableModel.nRowsMax
+                value: adjustableTable.nRows
+                onValueChanged: {
+                    adjustableTable.nRows = value
+                }
+            }
+            Slider {
+                id: nRowsSlider
+                orientation: Qt.Vertical
+                anchors.horizontalCenter: parent.horizontalCenter
+                from: adjustableTableModel.nRowsMax
+                to: 1
                 value: adjustableTable.nRows
                 onValueChanged: {
                     adjustableTable.nRows = value
