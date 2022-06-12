@@ -30,7 +30,6 @@ Item {
             height: 100
             spacing: 30
             SpinBox {
-                id: nColsSpinBox
                 anchors.verticalCenter: parent.verticalCenter
                 from: 1
                 to: adjustableTableModel.nColsMax
@@ -40,7 +39,6 @@ Item {
                 }
             }
             Dial {
-                id: nColsDial
                 height: parent.height
                 from: 1
                 to: adjustableTableModel.nColsMax
@@ -50,7 +48,6 @@ Item {
                 }
             }
             Slider {
-                id: nColsSlider
                 orientation: Qt.Horizontal
                 anchors.verticalCenter: parent.verticalCenter
                 from: 1
@@ -66,7 +63,6 @@ Item {
             width: 100
             spacing: 10
             SpinBox {
-                id: nRowsSpinBox
                 width: parent.width // needed to specify this -- shouldn't it happen automatically?
                 from: 1
                 to: adjustableTableModel.nRowsMax
@@ -76,7 +72,6 @@ Item {
                 }
             }
             Dial {
-                id: nRowsDial
                 width: parent.width // needed to specify this -- shouldn't it happen automatically?
                 from: 1
                 to: adjustableTableModel.nRowsMax
@@ -86,7 +81,6 @@ Item {
                 }
             }
             Slider {
-                id: nRowsSlider
                 orientation: Qt.Vertical
                 anchors.horizontalCenter: parent.horizontalCenter
                 from: adjustableTableModel.nRowsMax
