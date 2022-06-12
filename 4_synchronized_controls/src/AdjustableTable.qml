@@ -4,6 +4,8 @@ import AdjustableTableModel
 
 Item {
 
+    id: adjustableTable
+
     // Synchronized controls exercise implementation notes:
     // - synchronizing many items suggests common properties
     // - the six controls and the table all depend on the common properties
@@ -12,9 +14,14 @@ Item {
     //   - to complete the synchronization, each control actively updates
     //     the corresponding common property when its value changes
 
-    id: adjustableTable
     property int nRows: 5
     property int nCols: 8
+
+    AdjustableTableModel {
+        id: adjustableTableModel
+        nRows: adjustableTable.nRows
+        nCols: adjustableTable.nCols
+    }
 
     Grid {
         columns: 2
@@ -97,11 +104,7 @@ Item {
             height: parent.height
             rowSpacing: 4
             columnSpacing: 10
-            model: AdjustableTableModel {
-                id: adjustableTableModel
-                nRows: adjustableTable.nRows
-                nCols: adjustableTable.nCols
-            }
+            model: adjustableTableModel
             delegate: Text {
                 text: display
             }
