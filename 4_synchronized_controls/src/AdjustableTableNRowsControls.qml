@@ -4,7 +4,7 @@ import QtQuick.Controls
 Column {
 
     SpinBox {
-        width: parent.width // needed to specify this -- shouldn't it happen automatically?
+        width: parent.width // needed to specify this for webassembly build -- shouldn't it happen automatically?
         from: 1
         to: adjustableTableModel.nRowsMax
         value: adjustableTable.nRows
@@ -14,7 +14,7 @@ Column {
     }
 
     Dial {
-        width: parent.width // needed to specify this -- shouldn't it happen automatically?
+        width: parent.width // needed to specify this for webassembly build -- shouldn't it happen automatically?
         from: 1
         to: adjustableTableModel.nRowsMax
         value: adjustableTable.nRows
