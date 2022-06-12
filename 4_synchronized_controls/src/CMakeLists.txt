@@ -24,6 +24,6 @@ target_link_libraries(synchronized_controls PUBLIC
 qt_add_qml_module(synchronized_controls
     URI AdjustableTableModel
     VERSION 1.0
-    QML_FILES main.qml AdjustableTable.qml
+    QML_FILES main.qml AdjustableTable.qml AdjustableTableNRowsControls.qml AdjustableTableNColsControls.qml
     NO_RESOURCE_TARGET_PATH
 )

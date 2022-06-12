@@ -1,5 +1,5 @@
 import QtQuick
-import QtQuick.Controls
+//import QtQuick.Controls
 import AdjustableTableModel
 
 Item {
@@ -33,70 +33,14 @@ Item {
             text: " " // empty top-left grid cell -- is there a more explicit item than empty text?
         }
 
-        Row {
+        AdjustableTableNColsControls {
             height: 100
             spacing: 30
-            SpinBox {
-                anchors.verticalCenter: parent.verticalCenter
-                from: 1
-                to: adjustableTableModel.nColsMax
-                value: adjustableTable.nCols
-                onValueChanged: {
-                    adjustableTable.nCols = value
-                }
-            }
-            Dial {
-                height: parent.height
-                from: 1
-                to: adjustableTableModel.nColsMax
-                value: adjustableTable.nCols
-                onValueChanged: {
-                    adjustableTable.nCols = value
-                }
-            }
-            Slider {
-                orientation: Qt.Horizontal
-                anchors.verticalCenter: parent.verticalCenter
-                from: 1
-                to: adjustableTableModel.nColsMax
-                value: adjustableTable.nCols
-                onValueChanged: {
-                    adjustableTable.nCols = value
-                }
-            }
         }
 
-        Column {
+        AdjustableTableNRowsControls {
             width: 100
             spacing: 10
-            SpinBox {
-                width: parent.width // needed to specify this -- shouldn't it happen automatically?
-                from: 1
-                to: adjustableTableModel.nRowsMax
-                value: adjustableTable.nRows
-                onValueChanged: {
-                    adjustableTable.nRows = value
-                }
-            }
-            Dial {
-                width: parent.width // needed to specify this -- shouldn't it happen automatically?
-                from: 1
-                to: adjustableTableModel.nRowsMax
-                value: adjustableTable.nRows
-                onValueChanged: {
-                    adjustableTable.nRows = value
-                }
-            }
-            Slider {
-                orientation: Qt.Vertical
-                anchors.horizontalCenter: parent.horizontalCenter
-                from: adjustableTableModel.nRowsMax
-                to: 1
-                value: adjustableTable.nRows
-                onValueChanged: {
-                    adjustableTable.nRows = value
-                }
-            }
         }
 
         TableView {
