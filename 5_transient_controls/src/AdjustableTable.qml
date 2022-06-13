@@ -5,8 +5,8 @@ Item {
 
     id: adjustableTable
 
-    property int nRows: 5
-    property int nCols: 8
+    property int nRows: adjustableTableModel.nRowsMax
+    property int nCols: adjustableTableModel.nColsMax
 
     AdjustableTableModel {
         id: adjustableTableModel
@@ -14,11 +14,14 @@ Item {
         nCols: adjustableTable.nCols
     }
 
-    // Transient controls exercise implementation notes: WORK IN PROGRESS
-    // Remove the grid layout from the previous exercise, filling the window
-    // with the table. Have the controls overlay when called for, then disappear.
-    // Make the TableView interactive:false so it does not steal the control input
-    // Add overlaying mouse areas to show/hide the controls -- accept no buttons so the underlying controls get them
+    // Transient controls exercise implementation notes:
+    //   - Remove the grid layout from the previous exercise to focus on the table
+    //   - Add mouse areas to detect the pointer near the controls
+    //     - Set hoverEnabled to detect mouse motion without a click
+    //     - Accept no buttons so the underlying controls get them
+    //   - Make the TableView interactive:false so it does not steal the control input
+    //   - Show/hide the controls with a scale animation
+    //   - Dim/brighten the table with an opacity animation
 
     TableView {
         id: adjustableTableView
@@ -33,21 +36,27 @@ Item {
         delegate: Text {
             text: display
         }
+        Behavior on opacity {
+           NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
+        }
     }
 
     AdjustableTableNColsControls {
         id: nColsControls
-        x: adjustableTableView.x+30
+        x: adjustableTableView.x+100
         height: 100
         spacing: 30
-        visible: false
+        scale: 0
+        Behavior on scale {
+           NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
+        }
     }
     MouseArea {
         anchors.fill: nColsControls
         hoverEnabled: true
-        onEntered: { adjustableTableView.opacity = 0.1; nColsControls.visible = true }
-        onExited: { adjustableTableView.opacity = 1; nColsControls.visible = false }
         acceptedButtons: Qt.NoButton
+        onEntered: { adjustableTableView.opacity = 0.2; nColsControls.scale = 1 }
+        onExited: { adjustableTableView.opacity = 1; nColsControls.scale = 0 }
     }
 
     AdjustableTableNRowsControls {
@@ -55,14 +64,17 @@ Item {
         y: adjustableTableView.y+10
         width: 100
         spacing: 10
-        visible: false
+        scale: 0
+        Behavior on scale {
+           NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
+        }
     }
     MouseArea {
         anchors.fill: nRowsControls
         hoverEnabled: true
-        onEntered: { adjustableTableView.opacity = 0.1; nRowsControls.visible = true }
-        onExited: { adjustableTableView.opacity = 1; nRowsControls.visible = false }
         acceptedButtons: Qt.NoButton
+        onEntered: { adjustableTableView.opacity = 0.2; nRowsControls.scale = 1 }
+        onExited: { adjustableTableView.opacity = 1; nRowsControls.scale = 0 }
     }
 
 }

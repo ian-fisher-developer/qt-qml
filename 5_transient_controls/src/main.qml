@@ -1,8 +1,8 @@
 import QtQuick
 
 Window {
-    width: 850
-    height: 350
+    width: 800
+    height: 300
     visible: true
     title: qsTr("Transient Controls")
 
