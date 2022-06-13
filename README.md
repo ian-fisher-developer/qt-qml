@@ -26,6 +26,10 @@ This is a brief summary of the exercises. Click the links above for more informa
 
    Adds more controls to the adjustable table exercise -- many GUIs offer multiple, synchronized controls for the same function.
 
+5. Transient Controls
+
+   Shows/hides the synchronized controls based on mouse proximity -- this exercise gets to the fluid, animated features particularly suited to QML.
+ 
 
 ## Configuration
 
