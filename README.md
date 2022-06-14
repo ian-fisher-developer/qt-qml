@@ -29,6 +29,10 @@ This is a brief summary of the exercises. Click the links above for more informa
 5. Transient Controls
 
    Shows/hides the synchronized controls based on mouse proximity -- this exercise gets to the fluid, animated features particularly suited to QML.
+
+6. Styling
+
+   TODO: Adds more attractive styling -- the previous exercises' default styling does not look good.
  
 
 ## Configuration
