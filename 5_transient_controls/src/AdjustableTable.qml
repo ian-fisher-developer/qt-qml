@@ -46,6 +46,7 @@ Item {
         x: adjustableTableView.x+100
         height: 100
         spacing: 30
+        scale: 0
     }
     MouseArea {
         anchors.fill: nColsControls
@@ -60,6 +61,7 @@ Item {
         y: adjustableTableView.y+10
         width: 100
         spacing: 10
+        scale: 0
     }
     MouseArea {
         anchors.fill: nRowsControls

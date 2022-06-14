@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 
 Row {
-    scale: 0
+
     Behavior on scale {
        NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
     }
@@ -38,3 +38,4 @@ Row {
         }
     }
 }
+
