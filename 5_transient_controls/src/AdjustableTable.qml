@@ -27,7 +27,6 @@ Item {
         id: adjustableTableView
         x: 50
         y: 50
-        interactive: false
         width: parent.width
         height: parent.height
         rowSpacing: 4
@@ -36,6 +35,7 @@ Item {
         delegate: Text {
             text: display
         }
+        interactive: false
         Behavior on opacity {
            NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
         }
@@ -47,6 +47,9 @@ Item {
         height: 100
         spacing: 30
         scale: 0
+        Behavior on scale {
+           NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
+        }
     }
     MouseArea {
         anchors.fill: nColsControls
@@ -62,6 +65,9 @@ Item {
         width: 100
         spacing: 10
         scale: 0
+        Behavior on scale {
+           NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
+        }
     }
     MouseArea {
         anchors.fill: nRowsControls

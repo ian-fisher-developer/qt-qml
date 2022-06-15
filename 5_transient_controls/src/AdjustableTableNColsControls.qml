@@ -3,10 +3,6 @@ import QtQuick.Controls
 
 Row {
 
-    Behavior on scale {
-       NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
-    }
-
     SpinBox {
         anchors.verticalCenter: parent.verticalCenter
         from: 1

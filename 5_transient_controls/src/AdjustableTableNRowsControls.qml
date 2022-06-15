@@ -3,10 +3,6 @@ import QtQuick.Controls
 
 Column {
 
-    Behavior on scale {
-       NumberAnimation { duration: 500; easing.type: Easing.InOutQuad  }
-    }
-
     SpinBox {
         width: parent.width // needed to specify this for webassembly build -- shouldn't it happen automatically?
         from: 1
