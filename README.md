@@ -32,7 +32,7 @@ This is a brief summary of the exercises. Click the links above for more informa
 
 6. Styling
 
-   TODO: Adds more attractive styling -- the previous exercises' default styling does not look good.
+   IN PROGRESS: Adds some styling to the defaults.
  
 
 ## Configuration
