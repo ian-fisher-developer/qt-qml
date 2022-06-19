@@ -22,6 +22,13 @@ target_link_libraries(styling PUBLIC
     Qt::Quick
 )
 
+qt_add_resources(styling "styling"
+    PREFIX
+        "/"
+    FILES
+        "qtquickcontrols2.conf"
+)
+
 qt_add_qml_module(styling
     URI AdjustableTableModel
     VERSION 1.0

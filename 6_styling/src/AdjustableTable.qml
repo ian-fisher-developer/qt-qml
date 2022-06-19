@@ -14,15 +14,6 @@ Item {
         nCols: adjustableTable.nCols
     }
 
-    // Transient controls exercise implementation notes:
-    //   - Remove the grid layout from the previous exercise to focus on the table
-    //   - Add mouse areas to detect the pointer near the controls
-    //     - Set hoverEnabled to detect mouse motion without a click
-    //     - Accept no buttons so the underlying controls get them
-    //   - Make the TableView interactive:false so it does not steal the control input
-    //   - Show/hide the controls with a scale animation
-    //   - Dim/brighten the table with an opacity animation
-
     TableView {
         id: adjustableTableView
         x: 50
