@@ -6,8 +6,9 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick)
 
 qt_add_executable(styling
-    AdjustableTableModel.cpp AdjustableTableModel.h
     main.cpp
+    AdjustableTableModel.h
+    AdjustableTableModel.cpp
 )
 
 set_target_properties(styling PROPERTIES
@@ -24,6 +25,10 @@ target_link_libraries(styling PUBLIC
 qt_add_qml_module(styling
     URI AdjustableTableModel
     VERSION 1.0
-    QML_FILES main.qml AdjustableTable.qml AdjustableTableNRowsControls.qml AdjustableTableNColsControls.qml
+    QML_FILES
+        main.qml
+        AdjustableTable.qml
+        AdjustableTableNRowsControls.qml
+        AdjustableTableNColsControls.qml
     NO_RESOURCE_TARGET_PATH
 )
