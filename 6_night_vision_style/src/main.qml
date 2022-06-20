@@ -1,6 +1,6 @@
 import QtQuick.Controls
 
-// Styling exercise implementation notes:
+// Night Vision Style exercise implementation notes:
 // - Qt6 made significant changes to styling -- watch out for old documentation
 // - Replace QtQuick's Window with QtQuick.Controls ApplicationWindow for a
 //   better themed windoww that propagates styling to children
@@ -12,7 +12,7 @@ ApplicationWindow {
     width: 800
     height: 450
     visible: true
-    title: qsTr("Styling")
+    title: qsTr("Night Vision Style")
 
     AdjustableTable{
         width: parent.width
