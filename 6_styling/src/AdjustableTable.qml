@@ -7,6 +7,7 @@ Item {
 
     property int nRows: adjustableTableModel.nRowsMax
     property int nCols: adjustableTableModel.nColsMax
+    property real dimmedOpacity: 0.3
 
     AdjustableTableModel {
         id: adjustableTableModel
@@ -25,6 +26,7 @@ Item {
         model: adjustableTableModel
         delegate: Text {
             text: display
+            color: "teal" // Had to hard-code this, perhaps because TableView is not part of controls2...?
         }
         interactive: false
         Behavior on opacity {
@@ -46,7 +48,7 @@ Item {
         anchors.fill: nColsControls
         hoverEnabled: true
         acceptedButtons: Qt.NoButton
-        onEntered: { adjustableTableView.opacity = 0.2; nColsControls.scale = 1 }
+        onEntered: { adjustableTableView.opacity = dimmedOpacity; nColsControls.scale = 1 }
         onExited: { adjustableTableView.opacity = 1; nColsControls.scale = 0 }
     }
 
@@ -64,7 +66,7 @@ Item {
         anchors.fill: nRowsControls
         hoverEnabled: true
         acceptedButtons: Qt.NoButton
-        onEntered: { adjustableTableView.opacity = 0.2; nRowsControls.scale = 1 }
+        onEntered: { adjustableTableView.opacity = dimmedOpacity; nRowsControls.scale = 1 }
         onExited: { adjustableTableView.opacity = 1; nRowsControls.scale = 0 }
     }
 

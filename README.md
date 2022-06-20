@@ -30,10 +30,10 @@ This is a brief summary of the exercises. Click the links above for more informa
 
    Shows/hides the synchronized controls based on mouse proximity -- this exercise gets to the fluid, animated features particularly suited to QML.
 
-6. Styling
+6. Night-Vision Style
 
-   IN PROGRESS: Adds some styling to the defaults.
- 
+   Adds styling to the transient-controls -- some GUIs require heavily muted displays, helping preserve human-eye night vision.
+
 
 ## Configuration
 
