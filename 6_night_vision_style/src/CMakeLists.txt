@@ -1,35 +1,34 @@
-cmake_minimum_required(VERSION 3.16)
-project(night_vision_style LANGUAGES CXX)
+project(night_vision_style_app LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Qml Quick)
 
-qt_add_executable(night_vision_style
+qt_add_executable(night_vision_style_app
     main.cpp
     AdjustableTableModel.h
     AdjustableTableModel.cpp
 )
 
-set_target_properties(night_vision_style PROPERTIES
+set_target_properties(night_vision_style_app PROPERTIES
     MACOSX_BUNDLE TRUE
 )
 
-target_link_libraries(night_vision_style PUBLIC
+target_link_libraries(night_vision_style_app PUBLIC
     Qt::Core
     Qt::Gui
     Qt::Qml
     Qt::Quick
 )
 
-qt_add_resources(night_vision_style "night_vision_style"
+qt_add_resources(night_vision_style_app "night_vision_style_app"
     PREFIX
         "/"
     FILES
         "qtquickcontrols2.conf"
 )
 
-qt_add_qml_module(night_vision_style
+qt_add_qml_module(night_vision_style_app
     URI AdjustableTableModel
     VERSION 1.0
     QML_FILES

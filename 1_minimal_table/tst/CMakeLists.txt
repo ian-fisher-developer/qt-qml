@@ -1,4 +1,3 @@
-cmake_minimum_required(VERSION 3.16)
 project(minimal_table_tests LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
