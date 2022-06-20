@@ -37,6 +37,7 @@ Item {
     AdjustableTableNColsControls {
         id: nColsControls
         x: adjustableTableView.x+100
+        y: 2
         height: 100
         spacing: 30
         scale: 0
@@ -54,6 +55,7 @@ Item {
 
     AdjustableTableNRowsControls {
         id: nRowsControls
+        x: 2
         y: adjustableTableView.y+10
         width: 100
         spacing: 10
