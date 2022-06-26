@@ -5,14 +5,22 @@ Highly muted styling for the adjustable table, preserving human-eye night vision
 
 ## Description
 
-The sixth exercise builds on the transient controls exercise, applying a dark style with heavily muted display and control accents.
+Builds on the transient controls exercise, applying a dark style with heavily muted display and control accents.
 
 Many environments require similar styling to preserve human-eye night vision.
 
 
+## Implementation Highlights
+
+- Qt6 made significant changes to styling -- watch out for old documentation
+- In main.qml replace QtQuick's Window with QtQuick.Controls ApplicationWindow for a better themed window that propagates styling to children
+- Add the qtquickcontrols2.conf file (and a CMakeLists.txt entry) to quickly apply some global styling (this is just one of several styling techniques)
+- Had to duplicate the specification of "teal" in the AdjustableTable TableView :(
+
+
 ## Tests
 
-The same google-test suite from exercise two defines the variability of the adjustable table model dimensions.
+The same google-test suite from a previous exercise defines the variability of the adjustable table model dimensions.
 
 ```
 [==========] Running 9 tests from 1 test suite.

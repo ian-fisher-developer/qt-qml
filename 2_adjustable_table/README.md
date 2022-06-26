@@ -5,9 +5,20 @@ A QML table view displays data from a C++ table model, with controls for the num
 
 ## Description
 
-The second exercise has a C++ table data model with configurable dimensions, exposed to QML via Qt's Property System.
+Builds on the minimal table exercise, giving the C++ table data model configurable dimensions. Two GUI sliders adjust the number of rows and columns.
 
-The QML code describes the table view and its model, with slider controls for the row and column dimensions. It links the item properties, enabling the model/view/controls interactions.
+
+## Implementation Highlights
+
+In AdjustableTableModel.h
+
+- Expose the model to QML with QML_ELEMENT and the Qt Properties System
+- Sadly, the QML TableView does not natively support table headers
+
+In main.qml
+
+- Add the slider controls, arranging them with the table view in a grid
+- Make the table model's nRows/nCols properties dependent on the corresponding slider value
 
 
 ## Tests

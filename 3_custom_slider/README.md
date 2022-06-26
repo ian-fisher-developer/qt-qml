@@ -5,16 +5,21 @@ A custom QML slider control.
 
 ## Description
 
-The third exercise builds on the adjustable table exercise, replacing the standard QML slider control with a custom slider.
+Builds on the adjustable table exercise, replacing the standard QML slider control with a custom slider.
 
-The custom slider started life as a copy of Qt's BasicSlider.qml, and then the tinkering began, replacing the handle with images, adding color annotation, and getting the layout details right.
+QtWidgets applications generally have a consistent look and feel no matter who created them. QML provides for highly customized items.
+
+
+## Implementation Highlights
+
+The custom slider started life as a copy of Qt's BasicSlider.qml, and then the tinkering began, replacing the handle with images, adding some unusual color annotation, and getting the layout details right.
 
 The custom slider is a drop-in replacement for the standard slider.
 
 
 ## Tests
 
-The same google-test suite from exercise two defines the variability of the adjustable table model dimensions.
+The same google-test suite from a previous exercise defines the variability of the adjustable table model dimensions.
 
 ```
 [==========] Running 9 tests from 1 test suite.

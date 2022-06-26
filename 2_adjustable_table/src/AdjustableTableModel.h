@@ -12,13 +12,11 @@ class AdjustableTableModel : public QAbstractTableModel
 {
     Q_OBJECT
 
-    // Exercise implementation notes:
-    // - Expose the model to QML with QML_ELEMENT and the Qt Properties System
-    // - Sadly, the QML TableView does not natively support table headers
     Q_PROPERTY(int nRowsMax READ nRowsMax CONSTANT)
     Q_PROPERTY(int nRows READ nRows WRITE setNRows NOTIFY nRowsChanged)
     Q_PROPERTY(int nColsMax READ nColsMax CONSTANT)
     Q_PROPERTY(int nCols READ nCols WRITE setNCols NOTIFY nColsChanged)
+
     QML_ELEMENT
 
 public:

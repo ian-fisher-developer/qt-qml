@@ -16,6 +16,7 @@ class AdjustableTableModel : public QAbstractTableModel
     Q_PROPERTY(int nRows READ nRows WRITE setNRows NOTIFY nRowsChanged)
     Q_PROPERTY(int nColsMax READ nColsMax CONSTANT)
     Q_PROPERTY(int nCols READ nCols WRITE setNCols NOTIFY nColsChanged)
+
     QML_ELEMENT
 
 public:

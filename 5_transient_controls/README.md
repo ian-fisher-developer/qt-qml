@@ -5,14 +5,27 @@ Controls for the adjustable table that appear when needed, and then disappear.
 
 ## Description
 
-The fifth exercise builds on the synchronized controls exercise, smoothly showing the controls when the pointer is nearby, and hiding them when not needed.
+Builds on the synchronized controls exercise, smoothly showing the controls when the pointer is nearby, and hiding them when not needed.
 
 After learning some basics in the previous exercises, this gets to QML's strength -- fluid, animated GUIs that would be strange and difficult in a QtWidgets environment.
 
 
+## Implementation Highlights
+
+In AdjustableTable.qml
+
+- Remove the grid layout from the previous exercise to focus on the table
+- Add mouse areas to detect the pointer near the controls
+  - Set hoverEnabled to detect mouse motion without a click
+  - Accept no buttons so the underlying controls get them
+- Make the TableView interactive:false so it does not steal the control input
+- Show/hide the controls with a scale animation
+- Dim/brighten the table with an opacity animation
+
+
 ## Tests
 
-The same google-test suite from exercise two defines the variability of the adjustable table model dimensions.
+The same google-test suite from a previous exercise defines the variability of the adjustable table model dimensions.
 
 ```
 [==========] Running 9 tests from 1 test suite.
